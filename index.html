@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseRook - Real-Time SLA Monitoring for Jira</title>
+    <meta name="description" content="Monitor SLA compliance in real-time, predict breaches before they happen, and diagnose root causes—all inside Jira.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; line-height: 1.6; color: #1a1a1a; }
+        header { background: #fff; border-bottom: 1px solid #e0e0e0; padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        header nav { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        header .logo { font-size: 24px; font-weight: 700; color: #0052CC; text-decoration: none; }
+        header a { text-decoration: none; color: #1a1a1a; font-size: 14px; margin-left: 30px; }
+        header a:hover { color: #0052CC; }
+
+        .hero { background: linear-gradient(135deg, #0052CC 0%, #00875A 100%); color: white; padding: 100px 20px; text-align: center; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 16px; }
+        .hero p { font-size: 18px; margin-bottom: 24px; opacity: 0.95; }
+        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; cursor: pointer; border: none; transition: all 0.3s; }
+        .btn-primary { background: white; color: #0052CC; }
+        .btn-primary:hover { background: #f5f5f5; }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+        .section { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        .section h2 { font-size: 36px; font-weight: 700; margin-bottom: 16px; text-align: center; color: #1a1a1a; }
+        .section-subtitle { text-align: center; font-size: 16px; color: #666; margin-bottom: 48px; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .feature-card { padding: 24px; background: #f9f9f9; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #0052CC; }
+        .feature-card p { font-size: 14px; color: #666; }
+
+        .pricing { background: #f9f9f9; }
+        .pricing-card { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; text-align: center; margin: 0 auto; max-width: 400px; }
+        .pricing-card h3 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .pricing-card .price { font-size: 32px; font-weight: 700; color: #0052CC; margin: 16px 0; }
+        .pricing-card .period { color: #666; font-size: 14px; }
+        .pricing-card .benefits { text-align: left; margin: 24px 0; font-size: 14px; }
+        .pricing-card .benefits li { margin: 8px 0; }
+        .pricing-card .btn { width: 100%; margin-top: 24px; }
+
+        .how-it-works { background: white; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 32px; }
+        .step { text-align: center; }
+        .step-number { display: inline-block; width: 48px; height: 48px; background: #0052CC; color: white; border-radius: 50%; line-height: 48px; font-weight: 700; font-size: 20px; margin-bottom: 12px; }
+        .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .step p { font-size: 14px; color: #666; }
+
+        .tabs { background: #f9f9f9; }
+        .tabs-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 32px; }
+        .tab-card { background: white; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .tab-card .tab-name { font-size: 16px; font-weight: 700; color: #0052CC; margin-bottom: 8px; }
+        .tab-card p { font-size: 13px; color: #666; }
+
+        footer { background: #1a1a1a; color: white; padding: 40px 20px; text-align: center; }
+        footer a { color: #0052CC; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-size: 13px; margin-bottom: 16px; }
+        .footer-copyright { font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">PulseRook</a>
+            <div>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="https://docs.pulserook.com" target="_blank">Docs</a>
+                <a href="mailto:support@pulserook.com">Support</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Know Your SLA Risk Before You Breach It</h1>
+            <p>Real-time SLA monitoring, breach prediction, and root-cause insights—built natively for Jira. No AI black box. No external API keys. Just fast, explainable rules.</p>
+            <div class="cta-buttons">
+                <a href="https://marketplace.atlassian.com" class="btn btn-primary">Install from Marketplace</a>
+                <a href="mailto:support@pulserook.com?subject=PulseRook Demo" class="btn btn-secondary">Request Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <h2>What You Get</h2>
+        <p class="section-subtitle">Everything you need to master SLA compliance</p>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Executive Health Score</h3>
+                <p>One number, one grade (A–F). See your team's SLA health at a glance—compliance, risk, MTTR, reopen rate, and workload blended into a single score.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Breach Prediction</h3>
+                <p>Every ticket gets a live risk score and level (Healthy / Moderate / At Risk / Critical). Know which issues will slip before they do.</p>
+            </div>
+            <div class="feature-card">
+                <h3>"Why Are We Missing SLAs?"</h3>
+                <p>Automatic root-cause diagnosis. Status bottlenecks, assignee overload, priority misclassification—we surface the drivers and suggest fixes.</p>
+            </div>
+            <div class="feature-card">
+                <h3>SLA Health by Group</h3>
+                <p>Filter by Jira group to see compliance per team. Track health across your organization with one click.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Slack Alerts & Daily Digest</h3>
+                <p>Near-breach warnings and breach alerts posted directly to Slack. Keep your team in the loop, automatically.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Custom SLA Rules & Exports</h3>
+                <p>Set your own SLA hours per priority. Export reports as CSV or PDF for stakeholders. Everything is customizable.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Insights & Trends</h3>
+                <p>Weekly performance trends, risk hotspots, assignee performance, reopen-rate analysis. Spot patterns before they become problems.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Fully Rule-Based</h3>
+                <p>Deterministic, explainable logic. No AI guessing. No per-call costs. Everything runs inside Jira, on Atlassian Forge.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works">
+        <h2>Get Started in Minutes</h2>
+        <p class="section-subtitle">Install, configure, monitor</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Install</h3>
+                <p>Find PulseRook on the Atlassian Marketplace, hit Install, and grant the required Jira permissions.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Pick a Project</h3>
+                <p>Select your Jira project and set your SLA hours per priority level.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Monitor</h3>
+                <p>Open the PulseRook dashboard. Your SLA compliance is live, updated in real time.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Connect Slack (Optional)</h3>
+                <p>Paste a Slack webhook URL to get alerts and a daily digest. That's it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Overview -->
+    <section class="section tabs">
+        <h2>Six Powerful Tabs</h2>
+        <p class="section-subtitle">Everything in one place</p>
+        <div class="tabs-content">
+            <div class="tab-card">
+                <div class="tab-name">Overview</div>
+                <p>Executive health score, metric cards (total, healthy, at-risk, breached, compliance %), and a 7-day trend chart. Plus SLA health by group.</p>
+            </div>
+            <div class="tab-card">
+                <div class="tab-name">Issues</div>
+                <p>Sortable table of all project issues with SLA status, priority, assignee, and time-to-breach. Click any row to open the issue.</p>
+            </div>
+            <div class="tab-card">
+                <div class="tab-name">SLA</div>
+                <p>Breach prediction panel with risk-scored tickets. See which ones are at risk and exactly how much time is left.</p>
+            </div>
+            <div class="tab-card">
+                <div class="tab-name">Reports</div>
+                <p>Why are we missing SLAs? Root-cause diagnosis, priority breakdowns, and CSV/PDF export for stakeholder reporting.</p>
+            </div>
+            <div class="tab-card">
+                <div class="tab-name">Insights</div>
+                <p>Weekly trends, risk hotspots, assignee performance, reopen-rate analysis. Spot bottlenecks and patterns.</p>
+            </div>
+            <div class="tab-card">
+                <div class="tab-name">Settings</div>
+                <p>Editable SLA rules per priority, Slack webhook configuration, toggle alerts and digests on/off, permissions (admin only).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section pricing">
+        <h2>Pricing</h2>
+        <p class="section-subtitle">Fair, transparent, no surprises</p>
+        <div class="pricing-card">
+            <h3>PulseRook for Jira</h3>
+            <div class="price">$9<span class="period">/month</span></div>
+            <p style="color: #666; font-size: 14px; margin-bottom: 16px;">Per Jira Cloud instance</p>
+            <p style="color: #0052CC; font-weight: 600; margin-bottom: 16px;">Free 30-day trial. Cancel anytime.</p>
+            <ul class="benefits">
+                <li>✓ Real-time SLA monitoring</li>
+                <li>✓ Breach prediction</li>
+                <li>✓ Root-cause diagnosis</li>
+                <li>✓ Custom SLA rules</li>
+                <li>✓ Slack alerts</li>
+                <li>✓ Reports & export</li>
+                <li>✓ Insights & trends</li>
+                <li>✓ SLA by group</li>
+                <li>✓ Email & Slack support</li>
+            </ul>
+            <a href="https://marketplace.atlassian.com" class="btn btn-primary">Start Free Trial</a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="text-align: center; background: #f9f9f9;">
+        <h2>Ready to Stop Reacting to SLA Breaches?</h2>
+        <p style="font-size: 16px; color: #666; margin: 16px 0 32px;">Install PulseRook today. Free for 30 days. Then $9/month. Cancel anytime.</p>
+        <a href="https://marketplace.atlassian.com" class="btn btn-primary" style="display: inline-block; margin-right: 12px;">Install Now</a>
+        <a href="mailto:support@pulserook.com" class="btn btn-secondary" style="display: inline-block;">Questions? Email Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="https://docs.pulserook.com">Documentation</a>
+            <a href="mailto:support@pulserook.com">Support</a>
+        </div>
+        <div class="footer-copyright">
+            © 2026 PulseRook. Built for Jira Cloud. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
