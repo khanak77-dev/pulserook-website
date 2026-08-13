@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — PulseRook for Jira</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; color: #1a1a1a; line-height: 1.65; }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  .updated { color: #666; font-size: 14px; margin-bottom: 32px; }
+  h2 { font-size: 19px; margin-top: 36px; color: #0052CC; }
+  p, li { font-size: 15px; }
+  a { color: #0052CC; }
+  code { background: #f4f5f7; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  ul { padding-left: 22px; }
+  .back { display: inline-block; margin-bottom: 24px; font-size: 14px; }
+</style>
+</head>
+<body>
+  <a class="back" href="/">← PulseRook.com</a>
+  <h1>Privacy Policy — PulseRook for Jira</h1>
+  <p class="updated">Last updated: January 2026</p>
+
+  <h2>1. What this app does</h2>
+  <p>PulseRook for Jira ("the App") is a Jira Cloud plugin that monitors SLA compliance for issues in projects where it is installed. It runs entirely within Atlassian's Forge platform and processes data on your Jira instance.</p>
+
+  <h2>2. Data we access</h2>
+  <p>The App requests the following Jira scopes:</p>
+  <ul>
+    <li><code>read:jira-work</code> — read issue data (key, status, priority, timestamps, assignee)</li>
+    <li><code>read:jira-user</code> — read user profiles and group membership</li>
+    <li><code>read:servicedesk-request</code> — read Service Desk request data (if applicable)</li>
+    <li><code>storage:app</code> — store your configuration (SLA rules, notification settings, webhook URLs)</li>
+  </ul>
+  <p>This allows the App to calculate SLA compliance, predict breaches, diagnose root causes, and store your settings using Atlassian Forge's built-in storage API.</p>
+
+  <h2>3. Data we do NOT access</h2>
+  <ul>
+    <li>Issue description text, comments, or attachments (unless needed for status/priority)</li>
+    <li>Other Atlassian products (Confluence, Bitbucket, etc.)</li>
+    <li>Personal data beyond what's needed to identify assignees and groups</li>
+    <li>Any external AI or machine-learning services — all analysis runs as deterministic logic inside the App</li>
+  </ul>
+
+  <h2>4. Where data is stored</h2>
+  <p>All configuration data (SLA rules, Slack webhook URLs, notification preferences) is stored using Atlassian Forge's <code>storage:app</code> API. This keeps data within Atlassian's infrastructure, scoped to your Jira instance. We do not operate our own database or servers.</p>
+  <p>Issue data (status, priority, assignee, timestamps) is read from your Jira instance on demand and is not stored by the App beyond the duration of the request.</p>
+
+  <h2>5. Third-party sharing</h2>
+  <p>The only external service the App communicates with is <strong>Slack</strong>, and only if you explicitly configure a Slack webhook URL in Settings. In that case:</p>
+  <ul>
+    <li>SLA alert and digest messages are sent to the webhook URL you provide</li>
+    <li>Messages include issue keys, priorities, and breach status</li>
+    <li>No personal data is sent to Slack unless included in issue metadata</li>
+    <li>You control the webhook entirely — if you delete it, messages stop</li>
+  </ul>
+  <p><strong>We do not sell, share, or transfer your data to any other third party.</strong></p>
+
+  <h2>6. Data retention & deletion</h2>
+  <p>Configuration data persists only as long as the App is installed on your Jira site. Uninstalling the App removes its stored configuration data via Forge's storage lifecycle. Issue data is never stored — it is read from Jira on each analysis and discarded after the analysis completes.</p>
+
+  <h2>7. Your rights</h2>
+  <ul>
+    <li>Request a copy of the data the App has stored (your SLA rules and settings)</li>
+    <li>Request deletion of all configuration data by uninstalling the App</li>
+    <li>Disable the Slack integration at any time by removing the webhook URL</li>
+    <li>Disable email or daily digest notifications at any time in Settings</li>
+  </ul>
+  <p>To exercise these rights, email <strong>support@pulserook.com</strong>.</p>
+
+  <h2>8. Security</h2>
+  <ul>
+    <li>Data encryption in transit (TLS/HTTPS)</li>
+    <li>Data at rest encryption managed by Atlassian</li>
+    <li>Authentication via Jira user accounts</li>
+    <li>Role-based access control (Jira admins only for Settings)</li>
+  </ul>
+  <p>We do not store passwords or authentication tokens.</p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>We may update this policy from time to time. Changes take effect immediately upon posting to this page. Continued use of the App after changes constitutes your acceptance of the updated policy.</p>
+
+  <h2>10. Contact</h2>
+  <p>Questions about this policy or your data? Email <strong>support@pulserook.com</strong>.</p>
+  <p>For Atlassian-related privacy concerns, see <a href="https://www.atlassian.com/legal/privacy-policy">Atlassian's Privacy Policy</a>.</p>
+</body>
+</html>

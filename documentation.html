@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation — PulseRook for Jira</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; color: #1a1a1a; line-height: 1.65; }
+  h1 { font-size: 30px; margin-top: 40px; }
+  h2 { font-size: 22px; margin-top: 34px; color: #0052CC; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  p, li { font-size: 15px; }
+  a { color: #0052CC; }
+  code { background: #f4f5f7; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 22px; }
+  .back { display: inline-block; margin-bottom: 24px; font-size: 14px; }
+  hr { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+  strong { color: #0b1f4a; }
+</style>
+</head>
+<body>
+  <a class="back" href="/">← PulseRook.com</a>
+<h1>PulseRook for Jira — User Documentation</h1>
+<h2>Getting Started</h2>
+<h3>Installation</h3>
+<ol>
+<li>Go to the <strong>Atlassian Marketplace</strong> and search for "PulseRook for Jira"</li>
+<li>Click <strong>Install</strong> and authorize the required Jira permissions</li>
+<li>Once installed, you'll see PulseRook in your Jira project sidebar</li>
+<li>Click <strong>PulseRook</strong> to open the app</li>
+<li>Select your project from the dropdown and click <strong>Get Started</strong></li>
+</ol>
+<h3>First-Time Setup (30-second onboarding)</h3>
+<ol>
+<li>Go to <strong>Settings</strong> tab</li>
+<li>Under <strong>SLA Rules</strong>, set your SLA hours per priority level:</li>
+<li>Highest: e.g., 4 hours</li>
+<li>High: e.g., 8 hours</li>
+<li>Medium: e.g., 24 hours</li>
+<li>Low: e.g., 48 hours</li>
+<li>Lowest: e.g., 72 hours</li>
+<li>Click <strong>Save SLA Rules</strong></li>
+<li>(Optional) Scroll down to <strong>Slack Integration</strong> and paste a webhook URL if you want alerts</li>
+<li>Done. Your SLA dashboard is now live.</li>
+</ol>
+<hr />
+<h2>Tabs Explained</h2>
+<h3>1. Overview Tab</h3>
+<p><strong>Your executive dashboard — the most important view.</strong></p>
+<p><strong>Executive Health Score (top):</strong> A single 0–100 score and letter grade (A–F) that blends:
+- SLA compliance % (met vs. breached)
+- Risk (% of tickets at risk)
+- Mean time to resolution (MTTR)
+- Reopen rate (how often closed tickets re-open)
+- Workload (how many open tickets per team member)</p>
+<p><strong>Metric Cards:</strong> Below the gauge, see:
+- <strong>Total</strong> = all issues in the project
+- <strong>Healthy</strong> = on track to meet SLA
+- <strong>Moderate</strong> = within 75% of SLA time
+- <strong>At Risk</strong> = within 25% of SLA time, will breach soon
+- <strong>Breached</strong> = SLA time already passed
+- <strong>Compliance %</strong> = (Healthy + Moderate) / Total</p>
+<p><strong>SLA Health by Group:</strong> A table showing SLA metrics per Jira group (if your team members are added to Jira groups). Filter by group to drill into a specific team's health.</p>
+<p><strong>7-Day Trend Chart:</strong> Shows your compliance % over the last 7 days — is health improving or declining?</p>
+<p><strong>How to use:</strong> Share the screenshot of this tab with stakeholders. The health score tells the whole story instantly. Click any metric card to jump to that filtered list of issues.</p>
+<hr />
+<h3>2. Issues Tab</h3>
+<p><strong>Every issue in your project, with SLA data.</strong></p>
+<p>Columns shown:
+- <strong>Issue Key</strong> (clickable) — opens the issue in Jira
+- <strong>Summary</strong> — issue title
+- <strong>Status</strong> — current workflow status (To Do, In Progress, In Review, Done, etc.)
+- <strong>Priority</strong> — Highest/High/Medium/Low/Lowest
+- <strong>Assignee</strong> — who it's assigned to
+- <strong>SLA Status</strong> — Met / Moderate / At Risk / Breached
+- <strong>Time Remaining</strong> — hours left before breach (e.g., "3.2h remaining")
+- <strong>Time Elapsed</strong> — how long it's been in the current status</p>
+<p><strong>Sorting:</strong> Click any column header to sort (e.g., click "Time Remaining" to see the closest-to-breach issues first).</p>
+<p><strong>Filtering:</strong> Use the Status / Priority dropdowns above the table to narrow the list.</p>
+<p><strong>How to use:</strong> Check this tab daily. Sort by "Time Remaining" to find what needs immediate attention. Click any issue to jump to Jira and take action.</p>
+<hr />
+<h3>3. SLA Tab</h3>
+<p><strong>Dedicated breach prediction view.</strong></p>
+<p><strong>Breach Prediction Panel:</strong>
+- Shows all issues grouped by risk level: Healthy (green) / Moderate (blue) / At Risk (orange) / Breached (red)
+- Each group shows count + % of total
+- Click into a group to see the specific issues</p>
+<p><strong>Risk-Scored Table:</strong>
+- List of all issues sorted by urgency (At Risk first)
+- Shows issue key, summary, priority, assignee, time remaining
+- Color-coded pills (green/blue/orange/red) for instant visual scanning
+- Click any issue to open in Jira</p>
+<p><strong>Root Cause Hints:</strong> If available, shows a brief hint about why this ticket is at risk (e.g., "Status: In Review for 2 days").</p>
+<p><strong>How to use:</strong> Every morning, check the "At Risk" section. Assign resources to unblock the top 3–5 issues. Use this to prevent breaches, not respond to them.</p>
+<hr />
+<h3>4. Reports Tab</h3>
+<p><strong>Understand why you're missing SLAs.</strong></p>
+<p><strong>"Why Are We Missing SLAs?" Diagnosis:</strong>
+- <strong>Root Cause Analysis:</strong> Automatically surfaces the top 3 drivers behind breaches:
+  - "Status bottleneck: 8 tickets stuck in In Review" → Recommendation: increase review capacity
+  - "Assignee overload: Jane has 14 open items, SLA avg 1.2h" → Recommendation: rebalance work
+  - "Priority misclassification: 6 Medium items acting as Highest" → Recommendation: audit priority rules
+  - "Slow first response: avg 6h to start work" → Recommendation: triage SLA
+  - "Chronic backlog: 23 Lowest items never started" → Recommendation: capacity planning</p>
+<p><strong>Priority Breakdown:</strong>
+- Count of Met / Breached / At Risk per priority level
+- Helps you see if specific priorities are problematic (e.g., "Medium is failing, High is fine")</p>
+<p><strong>Export:</strong>
+- <strong>CSV Export:</strong> Issue list with all SLA data for use in Excel or Slack
+- <strong>PDF Export:</strong> Formatted report for stakeholder presentations (includes charts, metrics, top issues)</p>
+<p><strong>How to use:</strong> Review diagnoses weekly. Use the recommendations to guide team discussions. Export the PDF for monthly status reports to leadership.</p>
+<hr />
+<h3>5. Insights Tab</h3>
+<p><strong>Trends, patterns, and team health.</strong></p>
+<p><strong>Weekly SLA Trend:</strong> Chart showing compliance % for the past 4 weeks. Trending up = improving, trending down = risk.</p>
+<p><strong>Risk Hotspots:</strong>
+- Which statuses have the most at-risk issues? (e.g., "In Review" is a bottleneck)
+- Which priorities are underperforming? (e.g., "Highest has 80% breach rate")
+- Which assignees have the most at-risk work? (early warning for overload)</p>
+<p><strong>Assignee Performance Table:</strong>
+- Total issues, % met, % breached, average time-to-completion
+- Helps identify who needs support or unblocking</p>
+<p><strong>Reopen Rate:</strong> % of closed issues that were re-opened. High reopen % suggests quality issues or incomplete work.</p>
+<p><strong>How to use:</strong> Use this in team retrospectives. If "Code Review" is a hotspot, discuss ways to speed up reviews. If one person has high reopen %, invest in pair programming or mentoring.</p>
+<hr />
+<h3>6. Settings Tab</h3>
+<p><strong>Configuration and permissions.</strong></p>
+<p><strong>SLA Rules (Jira admin only):</strong>
+- Editable per-priority SLA hours (Highest / High / Medium / Low / Lowest)
+- Click the number to edit; click <strong>Save SLA Rules</strong> when done
+- Changes apply immediately to all issues</p>
+<p><strong>Slack Integration (admin only):</strong>
+- <strong>Webhook URL field:</strong> Paste a Slack webhook URL (get this from Slack app management)
+- <strong>Test Connection:</strong> Sends a test message to verify the webhook works
+- <strong>Enable Alerts:</strong> Toggle to send near-breach and breach notifications to Slack (real-time)
+- <strong>Enable Daily Digest:</strong> Toggle to send a daily summary at 9 AM in your timezone</p>
+<p><strong>Manual Actions (admin only):</strong>
+- <strong>Send Alerts Now:</strong> Manually trigger breach/near-breach alerts (useful for testing or immediate escalation)
+- <strong>Send Digest Now:</strong> Manually trigger the daily summary</p>
+<p><strong>Permissions:</strong>
+- If you're not a Jira admin, the Settings tab shows read-only. You'll see a banner: "Read-only view. Jira admin permission required to change settings."</p>
+<p><strong>How to use:</strong> Jira admins: set up SLA rules on day one, then review quarterly. Connect Slack early so the team gets alerts. Non-admins: reference SLA rules here to understand the expectations.</p>
+<hr />
+<h2>Common Workflows</h2>
+<h3>"I need to show SLA health to my boss"</h3>
+<p>→ Go to <strong>Overview</strong> → take a screenshot of the Health Score and Metrics → attach to your status report. Done.</p>
+<h3>"We're missing SLAs. What do we do?"</h3>
+<p>→ Go to <strong>Reports</strong> → read the "Why Are We Missing SLAs?" diagnosis → act on the top recommendation (e.g., "unblock Code Review"). Recheck in 1 week.</p>
+<h3>"Which issues will breach in the next hour?"</h3>
+<p>→ Go to <strong>SLA</strong> tab → sort by "Time Remaining" → look at the orange/red pills.</p>
+<h3>"Jane's team is struggling. Which issues are theirs?"</h3>
+<p>→ Go to <strong>Overview</strong> → filter by the group in "SLA Health by Group" → see their metrics and breached items.</p>
+<h3>"I want a report for stakeholders"</h3>
+<p>→ Go to <strong>Reports</strong> → click <strong>PDF Export</strong> → email it.</p>
+<h3>"Slack isn't alerting us"</h3>
+<p>→ Go to <strong>Settings</strong> → Slack Integration section → click <strong>Test Connection</strong> → if red error appears, check your webhook URL. If green success, webhook is good.</p>
+<hr />
+<h2>FAQ</h2>
+<p><strong>Q: How often is SLA data updated?</strong>
+A: In real time. Every time an issue status or priority changes, the SLA calculations update instantly.</p>
+<p><strong>Q: Can I change SLA rules mid-project?</strong>
+A: Yes. Go to Settings, edit the hours, and click Save. The new rules apply to all issues from that point forward. Older issues keep their original thresholds for consistency.</p>
+<p><strong>Q: What if an issue isn't in a Jira group?</strong>
+A: It won't appear in the "SLA Health by Group" panel. But it still counts toward overall project metrics.</p>
+<p><strong>Q: Does PulseRook work with Service Desk?</strong>
+A: Yes. If you have Service Desk requests, they appear in PulseRook alongside standard issues.</p>
+<p><strong>Q: Can I export SLA data for integration with other tools?</strong>
+A: Yes, use the CSV export in the Reports tab. You can then import into Excel, Tableau, Looker, etc.</p>
+<p><strong>Q: What if I uninstall PulseRook?</strong>
+A: All your configuration (SLA rules, Slack webhook) is deleted within 30 days. Your Jira data is untouched.</p>
+<p><strong>Q: Is there a mobile app?</strong>
+A: Not yet. The dashboard is responsive and works on mobile, but the experience is optimized for desktop.</p>
+<p><strong>Q: Who can edit SLA rules?</strong>
+A: Only Jira admins and project admins. Regular team members see the Settings tab in read-only mode.</p>
+<hr />
+<h2>Getting Help</h2>
+<ul>
+<li><strong>Email:</strong> support@pulserook.com</li>
+<li><strong>Response time:</strong> We aim to respond within 24 hours</li>
+<li><strong>Status page:</strong> Check <a href="https://status.pulserook.com">status.pulserook.com</a> for any known issues</li>
+</ul>
+<hr />
+<h2>Version</h2>
+<p><strong>PulseRook v1.0.0</strong> — January 2026</p>
+<p>Last updated: January 2026</p></body></html>
