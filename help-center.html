@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Center — PulseRook for Jira</title>
+<meta name="description" content="Answers to common questions about installing, configuring, and using PulseRook for Jira.">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; color: #1a1a1a; line-height: 1.65; }
+  h1 { font-size: 30px; margin-top: 40px; }
+  h2 { font-size: 22px; margin-top: 34px; color: #0052CC; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  p, li { font-size: 15px; }
+  a { color: #0052CC; }
+  code { background: #f4f5f7; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 22px; }
+  .back { display: inline-block; margin-bottom: 24px; font-size: 14px; }
+  hr { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+  strong { color: #0b1f4a; }
+  .toc { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+  .toc h2 { margin-top: 0; border-bottom: none; padding-bottom: 0; font-size: 16px; }
+  .toc ul { columns: 2; padding-left: 18px; }
+  .toc li { font-size: 14px; margin: 4px 0; break-inside: avoid; }
+  .contact-box { background: #f4f5f7; border-radius: 8px; padding: 20px 24px; margin-top: 16px; }
+  @media (max-width: 600px) {
+    .toc ul { columns: 1; }
+  }
+</style>
+</head>
+<body>
+  <a class="back" href="/">← PulseRook.com</a>
+  <h1>PulseRook Help Center &amp; FAQ</h1>
+
+  <nav class="toc">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#installation-setup">Installation &amp; Setup</a></li>
+      <li><a href="#sla-configuration">SLA Configuration</a></li>
+      <li><a href="#health-score-metrics">Health Score &amp; Metrics</a></li>
+      <li><a href="#group-filtering">Group Filtering</a></li>
+      <li><a href="#slack-integration">Slack Integration</a></li>
+      <li><a href="#reports-exports">Reports &amp; Exports</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+      <li><a href="#account-billing">Account &amp; Billing</a></li>
+      <li><a href="#permissions-security">Permissions &amp; Security</a></li>
+      <li><a href="#performance-limits">Performance &amp; Limits</a></li>
+      <li><a href="#feature-requests-roadmap">Feature Requests &amp; Roadmap</a></li>
+      <li><a href="#contact-support">Contact &amp; Support</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="installation-setup">Installation &amp; Setup</h2>
+
+  <h3>How do I install PulseRook?</h3>
+  <ol>
+    <li>Go to the <a href="https://marketplace.atlassian.com">Atlassian Marketplace</a></li>
+    <li>Search for "PulseRook for Jira"</li>
+    <li>Click <strong>Install</strong></li>
+    <li>Authorize the required Jira permissions</li>
+    <li>Open PulseRook in your Jira project sidebar</li>
+    <li>Select your project and go to <strong>Settings</strong> to configure SLA rules</li>
+  </ol>
+
+  <h3>What permissions does PulseRook need?</h3>
+  <p>PulseRook requests the following Jira scopes:</p>
+  <ul>
+    <li><code>read:jira-work</code> — read issue data (status, priority, timestamps, assignee)</li>
+    <li><code>read:jira-user</code> — read user profiles and group membership</li>
+    <li><code>read:servicedesk-request</code> — read Service Desk requests (if applicable)</li>
+    <li><code>storage:app</code> — store your configuration (SLA rules, webhook URLs)</li>
+  </ul>
+  <p>These permissions are required for the app to function. PulseRook does not access issue descriptions, comments, or other Atlassian products.</p>
+
+  <h3>Can I use PulseRook with multiple projects?</h3>
+  <p>Currently, PulseRook monitors one project per Jira Cloud instance. Multi-project monitoring is on the v2.0 roadmap.</p>
+  <p><strong>Workaround:</strong> If you need to monitor multiple projects, you'll need to install the app separately for each project.</p>
+
+  <h3>How long is the free trial?</h3>
+  <p>30 days, with full access to all features. After 30 days, billing begins at $9/month per instance. You can cancel anytime.</p>
+
+  <hr />
+
+  <h2 id="sla-configuration">SLA Configuration</h2>
+
+  <h3>How do I set up SLA rules?</h3>
+  <ol>
+    <li>Go to <strong>Settings</strong> tab (Jira admin access required)</li>
+    <li>Under <strong>SLA Rules</strong>, you'll see priority levels: Highest, High, Medium, Low, Lowest</li>
+    <li>Click on the hours for each priority to edit</li>
+    <li>Set your team's SLA hours (e.g., Highest = 4 hours, High = 8 hours, etc.)</li>
+    <li>Click <strong>Save SLA Rules</strong></li>
+  </ol>
+  <p>Rules apply immediately to all issues.</p>
+
+  <h3>Can I set different SLA rules per project?</h3>
+  <p>Currently, SLA rules are global per Jira Cloud instance. If you need project-specific rules, this feature is planned for v2.0.</p>
+  <p><strong>Workaround:</strong> Use priority-based rules as a proxy. If Project A always prioritizes differently, have your team adjust priority assignments.</p>
+
+  <h3>Can I have different SLA rules for Service Desk vs. regular issues?</h3>
+  <p>Not yet. All SLA calculations use the same rules regardless of issue type. This is on the roadmap.</p>
+
+  <h3>What happens if I change SLA rules mid-project?</h3>
+  <p>New rules apply immediately to all issues going forward. Issues that were already created use the rules in effect when they were created (for consistency).</p>
+
+  <hr />
+
+  <h2 id="health-score-metrics">Health Score &amp; Metrics</h2>
+
+  <h3>How is the Executive Health Score calculated?</h3>
+  <p>The score (0–100) blends five factors:</p>
+  <ol>
+    <li><strong>SLA Compliance %</strong> (40% weight) — % of issues that met their SLA</li>
+    <li><strong>Risk %</strong> (20% weight) — % of issues currently at risk of breach</li>
+    <li><strong>MTTR</strong> (15% weight) — mean time to resolution (lower is better)</li>
+    <li><strong>Reopen Rate</strong> (15% weight) — % of closed issues that were reopened (lower is better)</li>
+    <li><strong>Workload</strong> (10% weight) — average open issues per team member (lower is better)</li>
+  </ol>
+  <p><strong>Grade scale:</strong></p>
+  <ul>
+    <li>90–100: A</li>
+    <li>80–89: B</li>
+    <li>70–79: C</li>
+    <li>60–69: D</li>
+    <li>0–59: F</li>
+  </ul>
+
+  <h3>What does "Moderate" mean in the metrics?</h3>
+  <p><strong>Moderate</strong> = the issue is within 75% of its SLA time but hasn't breached yet. It's on track, but monitor it.</p>
+  <p>Example: if an issue has a 24-hour SLA, "Moderate" means it has between 6–24 hours remaining.</p>
+
+  <h3>Why is my compliance % different from the Overview card and the trend chart?</h3>
+  <p>They should match. If they don't, refresh the page. If the discrepancy persists, email <strong>support@pulserook.com</strong>.</p>
+
+  <hr />
+
+  <h2 id="group-filtering">Group Filtering</h2>
+
+  <h3>What is "SLA Health by Group"?</h3>
+  <p>It shows SLA compliance metrics for each Jira group (team). You can filter the Overview dashboard by group to see one team's health in isolation.</p>
+
+  <h3>How do I add users to Jira groups?</h3>
+  <p>In Jira, go to <strong>Settings</strong> → <strong>User Management</strong> → <strong>Groups</strong> and add users. PulseRook detects group membership and automatically surfaces the groups in the Overview tab.</p>
+
+  <h3>What if a user is in multiple Jira groups?</h3>
+  <p>PulseRook assigns each user to their first group alphabetically. This ensures consistent, deterministic reporting.</p>
+  <p>Example: if Jane is in both "dev-team" and "qa-team", her issues count toward "dev-team" only.</p>
+
+  <hr />
+
+  <h2 id="slack-integration">Slack Integration</h2>
+
+  <h3>How do I connect Slack?</h3>
+  <ol>
+    <li>In Slack, create a Slack app (or use an existing one)</li>
+    <li>Under <strong>Incoming Webhooks</strong>, create a new webhook for a channel (e.g., #sla-alerts)</li>
+    <li>Copy the webhook URL</li>
+    <li>In PulseRook Settings, go to <strong>Slack Integration</strong></li>
+    <li>Paste the URL and click <strong>Test Connection</strong></li>
+    <li>If the test succeeds (green checkmark), enable <strong>Alerts</strong> and <strong>Daily Digest</strong></li>
+  </ol>
+
+  <h3>What gets sent to Slack?</h3>
+  <ul>
+    <li><strong>Breach alerts:</strong> When an issue breaches its SLA (real-time)</li>
+    <li><strong>Near-breach alerts:</strong> When an issue enters "At Risk" (within 25% of SLA time)</li>
+    <li><strong>Daily digest:</strong> Each morning, a summary of the previous day's SLA performance</li>
+  </ul>
+  <p>Messages include issue key, priority, and breach status only — no sensitive comment data.</p>
+
+  <h3>Can I customize Slack messages?</h3>
+  <p>Not yet. Messages are formatted automatically. Custom message templates are on the v2.0 roadmap.</p>
+
+  <h3>What if my Slack webhook stops working?</h3>
+  <p>Slack may deactivate webhooks if they're unused for 30 days. If alerts stop, go to <strong>Settings</strong>, click <strong>Test Connection</strong>, and regenerate the webhook if needed.</p>
+
+  <h3>Can I send alerts to multiple Slack channels?</h3>
+  <p>Currently, one webhook per PulseRook instance. To alert multiple channels, you can set up a Slack workflow to re-post messages from the primary channel.</p>
+
+  <hr />
+
+  <h2 id="reports-exports">Reports &amp; Exports</h2>
+
+  <h3>How do I export SLA data?</h3>
+  <ol>
+    <li>Go to <strong>Reports</strong> tab</li>
+    <li>Scroll to the bottom</li>
+    <li>Click <strong>CSV Export</strong> (for Excel/analytics) or <strong>PDF Export</strong> (for presentations)</li>
+    <li>The file downloads immediately</li>
+  </ol>
+
+  <h3>What's included in the CSV export?</h3>
+  <ul>
+    <li>Issue key, summary, status, priority, assignee</li>
+    <li>SLA status (Met / Moderate / At Risk / Breached)</li>
+    <li>Time remaining (or time elapsed if breached)</li>
+    <li>Priority level</li>
+    <li>One row per issue</li>
+  </ul>
+
+  <h3>What's included in the PDF export?</h3>
+  <ul>
+    <li>Executive summary with health score and key metrics</li>
+    <li>Priority breakdown chart</li>
+    <li>SLA compliance trend (7-day)</li>
+    <li>Top breached issues</li>
+    <li>Root-cause diagnosis</li>
+    <li>Assignee performance table</li>
+  </ul>
+
+  <h3>Can I schedule automated exports to email?</h3>
+  <p>Not yet. Export manually and email the PDF. Scheduled reports are planned for v2.0.</p>
+
+  <hr />
+
+  <h2 id="troubleshooting">Troubleshooting</h2>
+
+  <h3>The dashboard shows "No data" or very low numbers. Why?</h3>
+  <ol>
+    <li><strong>Did you set SLA rules?</strong> Go to Settings and configure SLA hours per priority. Without rules, no analysis runs.</li>
+    <li><strong>Do you have issues in your project?</strong> If the project has 0 issues, there's nothing to monitor.</li>
+    <li><strong>Are you looking at the right project?</strong> Check the project selector at the top of PulseRook.</li>
+  </ol>
+
+  <h3>The Slack test shows an error. What do I do?</h3>
+  <p><strong>Common errors:</strong></p>
+  <ul>
+    <li>"Invalid webhook URL" → Check that you copied the full URL from Slack (should start with <code>https://hooks.slack.com/</code>)</li>
+    <li>"Channel not found" → Make sure the webhook points to a channel that exists and you have permission to post to</li>
+    <li>"Unauthorized" → Check that the webhook is still active in Slack (webhooks can expire if unused for 30 days)</li>
+  </ul>
+  <p>Try <strong>Test Connection</strong> again after fixing the URL.</p>
+
+  <h3>Why aren't my changes saving in Settings?</h3>
+  <ol>
+    <li><strong>Are you a Jira admin?</strong> Only admins can edit SLA rules and Slack settings. If you see a "Read-only view" banner, you don't have permission.</li>
+    <li><strong>Are you clicking Save?</strong> Changes don't persist until you click the Save button.</li>
+    <li><strong>Is there a red error message?</strong> Read the message — it may explain what went wrong.</li>
+  </ol>
+
+  <h3>The group dropdown is empty. Why?</h3>
+  <p><strong>SLA Health by Group</strong> only shows groups that have at least one user with an assigned ticket. If your groups exist but don't appear:</p>
+  <ol>
+    <li>Make sure users in the group have open or closed issues assigned to them</li>
+    <li>Refresh the page</li>
+    <li>Check that users are actually added to the Jira group (Settings → User Management → Groups)</li>
+  </ol>
+
+  <h3>Metrics aren't updating. The data looks stale.</h3>
+  <ol>
+    <li>Refresh the page (Ctrl+R or Cmd+R)</li>
+    <li>Wait a few seconds if you just made a change in Jira (PulseRook updates in real time, but may take a few seconds to reflect)</li>
+    <li>Check if there's a browser console error (F12, Console tab)</li>
+  </ol>
+  <p>If issues persist, email <strong>support@pulserook.com</strong> with your project key and browser details.</p>
+
+  <hr />
+
+  <h2 id="account-billing">Account &amp; Billing</h2>
+
+  <h3>How do I upgrade after my free trial ends?</h3>
+  <p>Nothing — billing begins automatically on day 31 of your trial. Charges are billed to your Atlassian account monthly.</p>
+
+  <h3>How do I cancel my subscription?</h3>
+  <ol>
+    <li>Go to your <strong>Atlassian Marketplace</strong> account</li>
+    <li>Find PulseRook under "Installed apps"</li>
+    <li>Click <strong>Manage</strong> or <strong>Uninstall</strong></li>
+    <li>Follow the prompts</li>
+  </ol>
+  <p>Cancellation takes effect at the end of your current billing cycle. No refunds for partial months.</p>
+
+  <h3>Can I get a refund?</h3>
+  <p>Refunds are not available. However, you can cancel anytime, and charges stop at the end of your current cycle.</p>
+
+  <h3>Do you offer discounts for annual billing?</h3>
+  <p>Not yet. We bill monthly at $9/instance. Annual pricing is on the roadmap.</p>
+
+  <h3>What happens to my data if I uninstall?</h3>
+  <p>All PulseRook configuration (SLA rules, Slack webhook) is deleted within 30 days per Atlassian's retention policy. Your Jira data is untouched.</p>
+
+  <hr />
+
+  <h2 id="permissions-security">Permissions &amp; Security</h2>
+
+  <h3>Who can use PulseRook?</h3>
+  <p>Anyone with access to the project can view the dashboards (Overview, Issues, SLA, Reports, Insights). Only <strong>Jira admins and project admins</strong> can edit SLA rules and notification settings.</p>
+
+  <h3>How is my data secured?</h3>
+  <ul>
+    <li>All data is stored in Atlassian Forge, which encrypts data in transit and at rest</li>
+    <li>PulseRook does not store Jira issue descriptions, comments, or attachments</li>
+    <li>Slack webhook URLs are stored securely and only used to post notifications you control</li>
+    <li>No data is shared with third parties (only Slack, if you enable it)</li>
+  </ul>
+
+  <h3>Does PulseRook access my password?</h3>
+  <p>No. PulseRook uses Jira OAuth for authentication — you never provide your password.</p>
+
+  <h3>Is PulseRook GDPR compliant?</h3>
+  <p>Yes. PulseRook complies with GDPR and only processes data necessary for SLA monitoring. See our <a href="/privacy.html">Privacy Policy</a> for details.</p>
+
+  <hr />
+
+  <h2 id="performance-limits">Performance &amp; Limits</h2>
+
+  <h3>Will PulseRook slow down my Jira?</h3>
+  <p>No. PulseRook runs on Atlassian Forge, which isolates its compute from your Jira instance. You'll see no performance impact.</p>
+
+  <h3>How many issues can PulseRook handle?</h3>
+  <p>PulseRook works with projects of any size. We've tested with 10,000+ open issues with no performance degradation.</p>
+
+  <h3>What's the maximum SLA hours I can set?</h3>
+  <p>There's no hard limit, but we recommend staying under 1,000 hours (about 40 days) for practical purposes.</p>
+
+  <hr />
+
+  <h2 id="feature-requests-roadmap">Feature Requests &amp; Roadmap</h2>
+
+  <h3>How do I request a feature?</h3>
+  <p>Email <strong>support@pulserook.com</strong> with your idea. We review all requests and include popular ones on the roadmap.</p>
+
+  <h3>What's coming in v2.0?</h3>
+  <ul>
+    <li>Multi-project dashboard (one view across all projects)</li>
+    <li>Health score trends over time</li>
+    <li>Email digest option (in addition to Slack)</li>
+    <li>Dark mode</li>
+    <li>Per-project SLA rule isolation</li>
+    <li>Scheduled report exports</li>
+  </ul>
+
+  <h3>When is v2.0 releasing?</h3>
+  <p>We don't have a confirmed date yet. Join our mailing list for updates.</p>
+
+  <hr />
+
+  <h2 id="contact-support">Contact &amp; Support</h2>
+
+  <div class="contact-box">
+    <p><strong>Email:</strong> support@pulserook.com<br>
+    <strong>Response time:</strong> 24 hours (best effort)<br>
+    <strong>Status page:</strong> <a href="https://status.pulserook.com">status.pulserook.com</a></p>
+  </div>
+
+  <p>Still stuck? Email us with:</p>
+  <ul>
+    <li>Your Jira project key</li>
+    <li>What you were trying to do</li>
+    <li>What happened instead</li>
+    <li>Any error messages shown</li>
+  </ul>
+  <p>We'll get back to you within 24 hours.</p>
+</body>
+</html>

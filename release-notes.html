@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Notes — PulseRook for Jira</title>
+<meta name="description" content="Version history and release notes for PulseRook for Jira.">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; color: #1a1a1a; line-height: 1.65; }
+  h1 { font-size: 30px; margin-top: 40px; margin-bottom: 4px; }
+  .updated { color: #666; font-size: 14px; margin-bottom: 8px; }
+  .status { display: inline-block; background: #E3FCEF; color: #00875A; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 4px; margin-bottom: 24px; }
+  h2 { font-size: 22px; margin-top: 34px; color: #0052CC; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  h4 { font-size: 15px; margin-top: 18px; color: #0b1f4a; }
+  p, li { font-size: 15px; }
+  a { color: #0052CC; }
+  code { background: #f4f5f7; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 22px; }
+  .back { display: inline-block; margin-bottom: 24px; font-size: 14px; }
+  hr { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+  strong { color: #0b1f4a; }
+  .version-block { border-left: 3px solid #0052CC; padding-left: 20px; margin: 24px 0; }
+</style>
+</head>
+<body>
+  <a class="back" href="/">← PulseRook.com</a>
+  <h1>Release Notes</h1>
+
+  <div class="version-block" id="v1-0-0">
+    <h1 style="font-size:24px; margin-top:0;">PulseRook v1.0.0</h1>
+    <p class="updated">Release Date: January 2026</p>
+    <span class="status">Production-ready, tested, stable</span>
+
+    <h2>Overview</h2>
+    <p>PulseRook v1.0 is the inaugural release of a real-time SLA monitoring and breach prediction plugin for Jira Cloud. It delivers a complete, feature-rich dashboard for teams that need to monitor SLA compliance, diagnose root causes, and improve incident response.</p>
+
+    <hr />
+
+    <h2>What's Included</h2>
+
+    <h3>1. Executive Dashboards (6 Tabs)</h3>
+
+    <h4>Overview Tab</h4>
+    <ul>
+      <li><strong>Executive Health Score:</strong> Single 0–100 score (A–F grade) blending compliance, risk, MTTR, reopen rate, and workload</li>
+      <li><strong>Metric Cards:</strong> Total / Healthy / At Risk / Breached / Compliance %</li>
+      <li><strong>7-Day Trend Chart:</strong> Compliance % trend (is your team improving?)</li>
+      <li><strong>SLA Health by Group:</strong> Filter by Jira group to drill into team-level performance</li>
+      <li><strong>Color-coded UI:</strong> Green (healthy) / Blue (moderate) / Orange (at risk) / Red (breached) for instant visual scanning</li>
+    </ul>
+
+    <h4>Issues Tab</h4>
+    <ul>
+      <li><strong>Full issue list</strong> with sortable columns: Key, Summary, Status, Priority, Assignee, SLA Status, Time Remaining</li>
+      <li><strong>Filtering by Status and Priority</strong> to narrow focus</li>
+      <li><strong>Clickable rows:</strong> Jump from the table to the actual Jira issue</li>
+    </ul>
+
+    <h4>SLA Tab (Breach Prediction)</h4>
+    <ul>
+      <li><strong>Breach Prediction Panel:</strong> Issues grouped by risk level with counts and percentages</li>
+      <li><strong>Risk-Scored Table:</strong> All issues sorted by urgency (At Risk first), color-coded risk pills</li>
+      <li><strong>Time-to-Breach Indicator:</strong> Hours remaining before each issue breaches its SLA</li>
+    </ul>
+
+    <h4>Reports Tab (Root-Cause Diagnosis)</h4>
+    <ul>
+      <li><strong>Automatic Root-Cause Analysis:</strong> Identifies the top 3 drivers behind missed SLAs (status bottlenecks, assignee overload, priority misclassification, slow first response, chronic backlog)</li>
+      <li><strong>Actionable Recommendations:</strong> Each root cause comes with a concrete suggestion to fix it</li>
+      <li><strong>Priority Breakdown:</strong> Met / Breached / At Risk counts per priority level</li>
+      <li><strong>CSV Export:</strong> Issue data for Excel or analytics tools</li>
+      <li><strong>PDF Export:</strong> Formatted report for stakeholder presentations (includes charts, metrics, top issues)</li>
+    </ul>
+
+    <h4>Insights Tab (Trends &amp; Patterns)</h4>
+    <ul>
+      <li><strong>Weekly SLA Trend:</strong> 4-week compliance history</li>
+      <li><strong>Risk Hotspots:</strong> Which statuses and priorities are problematic</li>
+      <li><strong>Assignee Performance:</strong> Total issues, % met, % breached, average time-to-completion</li>
+      <li><strong>Reopen Rate:</strong> % of closed issues that were reopened (quality indicator)</li>
+    </ul>
+
+    <h4>Settings Tab (Configuration)</h4>
+    <ul>
+      <li><strong>SLA Rules Editor:</strong> Set custom SLA hours per priority level (Highest / High / Medium / Low / Lowest)</li>
+      <li><strong>Slack Integration:</strong> Webhook URL configuration, test connection, toggle alerts and digests</li>
+      <li><strong>Manual Actions:</strong> Send alerts now / send digest now (useful for testing or escalation)</li>
+      <li><strong>Admin-Only Access:</strong> Permission gating ensures only Jira admins can edit settings</li>
+    </ul>
+
+    <h3>2. SLA Rules Engine</h3>
+    <ul>
+      <li><strong>Custom Per-Priority Rules:</strong> Set your own SLA hours for each priority level</li>
+      <li><strong>Instant Application:</strong> Rules apply to all issues immediately after save</li>
+      <li><strong>No Coding Required:</strong> Simple numeric input, no custom expressions</li>
+      <li><strong>Deterministic:</strong> All calculations are rule-based, explainable logic (no AI, no black boxes)</li>
+    </ul>
+
+    <h3>3. Real-Time Breach Prediction</h3>
+    <ul>
+      <li><strong>Risk Scoring:</strong> Every issue gets a risk level based on elapsed time, priority, and status</li>
+      <li><strong>Risk Levels:</strong> Healthy / Moderate / At Risk / Breached (color-coded)</li>
+      <li><strong>Time-to-Breach Countdown:</strong> Shows hours remaining before each ticket breaches</li>
+      <li><strong>Near-Breach Alerts:</strong> Issues within 25% of SLA time are flagged as "At Risk"</li>
+    </ul>
+
+    <h3>4. Root-Cause Diagnosis</h3>
+    <p>Automatic analysis that surfaces why SLAs are being missed:</p>
+    <ul>
+      <li><strong>Status Bottleneck:</strong> Issues stuck in a specific status (e.g., "In Review") for too long</li>
+      <li><strong>Assignee Overload:</strong> Team members with too many open items relative to their SLA targets</li>
+      <li><strong>Priority Misclassification:</strong> Items marked as lower priority acting as higher priority</li>
+      <li><strong>Slow First Response:</strong> First response time is a bottleneck</li>
+      <li><strong>Chronic Backlog:</strong> Low-priority items never getting started</li>
+    </ul>
+    <p>Each diagnosis includes a recommendation (e.g., "increase review capacity").</p>
+
+    <h3>5. Slack Integration</h3>
+    <ul>
+      <li><strong>Webhook-Based Alerts:</strong> Configure a Slack webhook URL (no Slack app installation required)</li>
+      <li><strong>Breach Alerts:</strong> Real-time notification when an issue breaches its SLA</li>
+      <li><strong>Near-Breach Alerts:</strong> Warning when an issue enters "At Risk" status</li>
+      <li><strong>Daily Digest:</strong> Morning summary of the previous day's SLA performance (9 AM in your timezone)</li>
+      <li><strong>Manual Triggers:</strong> Send alerts or digests on demand for testing or escalation</li>
+      <li><strong>Test Connection:</strong> Verify the webhook works with a test message</li>
+    </ul>
+
+    <h3>6. SLA Health by Group</h3>
+    <ul>
+      <li><strong>Jira Group Filtering:</strong> Drill into SLA metrics for a specific Jira group (team)</li>
+      <li><strong>Group-Level Metrics:</strong> Total / Healthy / At Risk / Breached / Compliance % per group</li>
+      <li><strong>Automatic Discovery:</strong> PulseRook detects all groups and shows only those with tickets assigned</li>
+      <li><strong>Multi-Group Membership:</strong> Uses alphabetical tie-break for deterministic assignment</li>
+    </ul>
+
+    <h3>7. Reporting &amp; Export</h3>
+    <ul>
+      <li><strong>CSV Export:</strong> Raw issue data (key, summary, status, priority, SLA status, time remaining)</li>
+      <li><strong>PDF Export:</strong> Formatted report with charts, metrics, top issues, recommendations</li>
+      <li><strong>No Manual Formatting:</strong> Exports are ready to share with stakeholders</li>
+    </ul>
+
+    <h3>8. Admin-Only Permissions</h3>
+    <ul>
+      <li><strong>Settings Protection:</strong> Only Jira admins and project admins can edit SLA rules and Slack settings</li>
+      <li><strong>Read-Only Mode:</strong> Non-admin users see all dashboards but cannot edit configuration</li>
+      <li><strong>Clear UI:</strong> Admins see full controls; non-admins see a "Read-only view" banner</li>
+      <li><strong>Server-Side Enforcement:</strong> Permissions are enforced on the backend, not just the UI</li>
+    </ul>
+
+    <hr />
+
+    <h2>Technical Details</h2>
+
+    <h3>Architecture</h3>
+    <ul>
+      <li><strong>Platform:</strong> Atlassian Forge (React 16, Node.js)</li>
+      <li><strong>Storage:</strong> Atlassian Forge storage API (encrypted at rest)</li>
+      <li><strong>Scopes Used:</strong> <code>read:jira-work</code>, <code>read:jira-user</code>, <code>read:servicedesk-request</code>, <code>storage:app</code></li>
+      <li><strong>External Services:</strong> None (except optional Slack webhooks for notifications)</li>
+      <li><strong>No External AI:</strong> All analysis is rule-based, deterministic JavaScript</li>
+    </ul>
+
+    <h3>Performance</h3>
+    <ul>
+      <li><strong>Real-Time Updates:</strong> Issue changes reflect in dashboards within seconds</li>
+      <li><strong>Lightweight:</strong> Runs on Forge with no performance impact on your Jira instance</li>
+      <li><strong>Scalability:</strong> Tested with 10,000+ issues per project</li>
+    </ul>
+
+    <h3>Security &amp; Privacy</h3>
+    <ul>
+      <li><strong>Data Encryption:</strong> Atlassian Forge handles encryption in transit and at rest</li>
+      <li><strong>No Data Extraction:</strong> Issue descriptions, comments, and attachments are not accessed</li>
+      <li><strong>Admin-Only Config:</strong> Settings changes require Jira admin permission</li>
+      <li><strong>Slack URLs Secured:</strong> Webhook URLs are stored securely and only used for notifications</li>
+      <li><strong>GDPR Compliant:</strong> See <a href="/privacy.html">Privacy Policy</a> for details</li>
+    </ul>
+
+    <hr />
+
+    <h2>Known Limitations</h2>
+    <ol>
+      <li><strong>Single-Project Monitoring:</strong> Currently monitors one project per Jira Cloud instance. Multi-project dashboard is on the v2.0 roadmap.</li>
+      <li><strong>Global SLA Rules:</strong> Rules are global per instance, not per-project. Per-project rules are planned for v2.0.</li>
+      <li><strong>Slack Webhook Manual Setup:</strong> Webhook URLs must be created manually in Slack. Slack OAuth app integration is planned for v2.0.</li>
+      <li><strong>No Service Desk Customization:</strong> Service Desk issues are supported but use the same SLA rules as standard issues.</li>
+      <li><strong>Email Digest Not Yet Available:</strong> Daily digest is Slack-only in v1.0. Email digest is planned for v2.0.</li>
+    </ol>
+
+    <hr />
+
+    <h2>What We Learned Building v1.0</h2>
+    <p>We built this plugin to solve a real problem: teams using Jira don't know they're missing SLAs until it's too late. Existing solutions are expensive, opaque (AI-driven), or require moving data off Atlassian's cloud.</p>
+    <p>PulseRook is different:</p>
+    <ul>
+      <li><strong>Simple:</strong> No configuration beyond SLA hours and (optionally) a Slack webhook</li>
+      <li><strong>Fast:</strong> All logic is rule-based, so calculations are instant</li>
+      <li><strong>Trustworthy:</strong> No external API calls, no data extraction, no black boxes</li>
+      <li><strong>Fair:</strong> Flat pricing per instance, no per-user seats, no per-call metering</li>
+    </ul>
+    <p>This v1.0 is the foundation. Future versions will add multi-project support, trends, and deeper analytics. But the core—knowing your SLA risk in real time—is here and ready to use.</p>
+
+    <hr />
+
+    <h2>v2.0 Roadmap (Coming 2026)</h2>
+    <p>We're planning the following for v2.0:</p>
+    <ul>
+      <li><strong>Multi-Project Dashboard:</strong> One view across all Jira projects in your instance</li>
+      <li><strong>Health Score Trends:</strong> See how your health score is improving (or declining) week over week</li>
+      <li><strong>Per-Project SLA Rules:</strong> Different SLA thresholds for different projects</li>
+      <li><strong>Email Digest:</strong> In addition to Slack, send daily summaries via email</li>
+      <li><strong>Dark Mode:</strong> For users who prefer low-light interfaces</li>
+      <li><strong>Slack OAuth Integration:</strong> Easier setup without manual webhook copy-paste</li>
+      <li><strong>Quantified Recommendation Outcomes:</strong> Track how recommendations impact your SLA performance</li>
+      <li><strong>Advanced Scheduling:</strong> Schedule when alerts and digests should fire</li>
+      <li><strong>Custom Reports:</strong> Build your own reports with saved filters and export templates</li>
+    </ul>
+
+    <hr />
+
+    <h2>How to Get Started</h2>
+    <ol>
+      <li><strong>Install:</strong> Go to the Atlassian Marketplace, search "PulseRook," and click Install</li>
+      <li><strong>Configure:</strong> Go to Settings, set your SLA hours per priority, save</li>
+      <li><strong>Monitor:</strong> Open the Overview tab and start watching</li>
+      <li><strong>(Optional) Connect Slack:</strong> Paste a webhook URL in Settings to enable alerts</li>
+      <li><strong>Share:</strong> Take a screenshot of the Health Score and send it to stakeholders</li>
+    </ol>
+    <p><strong>Free 30-day trial. Then $9/month. Cancel anytime.</strong></p>
+
+    <hr />
+
+    <h2>Support &amp; Feedback</h2>
+    <ul>
+      <li><strong>Questions?</strong> Email support@pulserook.com</li>
+      <li><strong>Found a bug?</strong> Email support@pulserook.com with details</li>
+      <li><strong>Feature request?</strong> Email support@pulserook.com with your idea</li>
+      <li><strong>Documentation:</strong> Full user guide at <a href="/documentation.html">docs.pulserook.com</a></li>
+      <li><strong>Status page:</strong> Check <a href="https://status.pulserook.com">status.pulserook.com</a> for any incidents</li>
+    </ul>
+    <p>We read every email and prioritize based on customer feedback.</p>
+  </div>
+
+  <hr />
+
+  <h2>Thank You</h2>
+  <p>Thank you for trying PulseRook. We hope it helps your team master SLA compliance and deliver better incident response.</p>
+  <p>Questions or ideas? We're here to help.</p>
+  <p><strong>PulseRook Team</strong></p>
+</body>
+</html>
