@@ -51,28 +51,28 @@
 
   <h2 id="installation-setup">Installation &amp; Setup</h2>
 
-  <h3>How do I install PulseRook?</h3>
+  <h3>How do I install SLA Pulse for Jira?</h3>
   <ol>
     <li>Go to the <a href="https://marketplace.atlassian.com">Atlassian Marketplace</a></li>
     <li>Search for "SLA Pulse for Jira"</li>
     <li>Click <strong>Install</strong></li>
     <li>Authorize the required Jira permissions</li>
-    <li>Open PulseRook in your Jira project sidebar</li>
+    <li>Open SLA Pulse for Jira in your Jira project sidebar</li>
     <li>Select your project and go to <strong>Settings</strong> to configure SLA rules</li>
   </ol>
 
-  <h3>What permissions does PulseRook need?</h3>
-  <p>PulseRook requests the following Jira scopes:</p>
+  <h3>What permissions does SLA Pulse for Jira need?</h3>
+  <p>SLA Pulse for Jira requests the following Jira scopes:</p>
   <ul>
     <li><code>read:jira-work</code> — read issue data (status, priority, timestamps, assignee)</li>
     <li><code>read:jira-user</code> — read user profiles and group membership</li>
     <li><code>read:servicedesk-request</code> — read Service Desk requests (if applicable)</li>
     <li><code>storage:app</code> — store your configuration (SLA rules, webhook URLs)</li>
   </ul>
-  <p>These permissions are required for the app to function. PulseRook does not access issue descriptions, comments, or other Atlassian products.</p>
+  <p>These permissions are required for the app to function. SLA Pulse for Jira does not access issue descriptions, comments, or other Atlassian products.</p>
 
-  <h3>Can I use PulseRook with multiple projects?</h3>
-  <p>Currently, PulseRook monitors one project per Jira Cloud instance. Multi-project monitoring is on the v2.0 roadmap.</p>
+  <h3>Can I use SLA Pulse for Jira with multiple projects?</h3>
+  <p>Currently, SLA Pulse for Jira monitors one project per Jira Cloud instance. Multi-project monitoring is on the v2.0 roadmap.</p>
   <p><strong>Workaround:</strong> If you need to monitor multiple projects, you'll need to install the app separately for each project.</p>
 
   <h3>How long is the free trial?</h3>
@@ -139,10 +139,10 @@
   <p>It shows SLA compliance metrics for each Jira group (team). You can filter the Overview dashboard by group to see one team's health in isolation.</p>
 
   <h3>How do I add users to Jira groups?</h3>
-  <p>In Jira, go to <strong>Settings</strong> → <strong>User Management</strong> → <strong>Groups</strong> and add users. PulseRook detects group membership and automatically surfaces the groups in the Overview tab.</p>
+  <p>In Jira, go to <strong>Settings</strong> → <strong>User Management</strong> → <strong>Groups</strong> and add users. SLA Pulse for Jira detects group membership and automatically surfaces the groups in the Overview tab.</p>
 
   <h3>What if a user is in multiple Jira groups?</h3>
-  <p>PulseRook assigns each user to their first group alphabetically. This ensures consistent, deterministic reporting.</p>
+  <p>SLA Pulse for Jira assigns each user to their first group alphabetically. This ensures consistent, deterministic reporting.</p>
   <p>Example: if Jane is in both "dev-team" and "qa-team", her issues count toward "dev-team" only.</p>
 
   <hr />
@@ -154,7 +154,7 @@
     <li>In Slack, create a Slack app (or use an existing one)</li>
     <li>Under <strong>Incoming Webhooks</strong>, create a new webhook for a channel (e.g., #sla-alerts)</li>
     <li>Copy the webhook URL</li>
-    <li>In PulseRook Settings, go to <strong>Slack Integration</strong></li>
+    <li>In SLA Pulse for Jira Settings, go to <strong>Slack Integration</strong></li>
     <li>Paste the URL and click <strong>Test Connection</strong></li>
     <li>If the test succeeds (green checkmark), enable <strong>Alerts</strong> and <strong>Daily Digest</strong></li>
   </ol>
@@ -174,7 +174,7 @@
   <p>Slack may deactivate webhooks if they're unused for 30 days. If alerts stop, go to <strong>Settings</strong>, click <strong>Test Connection</strong>, and regenerate the webhook if needed.</p>
 
   <h3>Can I send alerts to multiple Slack channels?</h3>
-  <p>Currently, one webhook per PulseRook instance. To alert multiple channels, you can set up a Slack workflow to re-post messages from the primary channel.</p>
+  <p>Currently, one webhook per SLA Pulse for Jira instance. To alert multiple channels, you can set up a Slack workflow to re-post messages from the primary channel.</p>
 
   <hr />
 
@@ -218,7 +218,7 @@
   <ol>
     <li><strong>Did you set SLA rules?</strong> Go to Settings and configure SLA hours per priority. Without rules, no analysis runs.</li>
     <li><strong>Do you have issues in your project?</strong> If the project has 0 issues, there's nothing to monitor.</li>
-    <li><strong>Are you looking at the right project?</strong> Check the project selector at the top of PulseRook.</li>
+    <li><strong>Are you looking at the right project?</strong> Check the project selector at the top of SLA Pulse for Jira.</li>
   </ol>
 
   <h3>The Slack test shows an error. What do I do?</h3>
@@ -248,7 +248,7 @@
   <h3>Metrics aren't updating. The data looks stale.</h3>
   <ol>
     <li>Refresh the page (Ctrl+R or Cmd+R)</li>
-    <li>Wait a few seconds if you just made a change in Jira (PulseRook updates in real time, but may take a few seconds to reflect)</li>
+    <li>Wait a few seconds if you just made a change in Jira (SLA Pulse for Jira updates in real time, but may take a few seconds to reflect)</li>
     <li>Check if there's a browser console error (F12, Console tab)</li>
   </ol>
   <p>If issues persist, email <strong>support@pulserook.com</strong> with your project key and browser details.</p>
@@ -263,7 +263,7 @@
   <h3>How do I cancel my subscription?</h3>
   <ol>
     <li>Go to your <strong>Atlassian Marketplace</strong> account</li>
-    <li>Find PulseRook under "Installed apps"</li>
+    <li>Find SLA Pulse for Jira under "Installed apps"</li>
     <li>Click <strong>Manage</strong> or <strong>Uninstall</strong></li>
     <li>Follow the prompts</li>
   </ol>
@@ -276,38 +276,38 @@
   <p>Not yet. We bill monthly with tiered per-user pricing. Annual pricing is on the roadmap.</p>
 
   <h3>What happens to my data if I uninstall?</h3>
-  <p>All PulseRook configuration (SLA rules, Slack webhook) is deleted within 30 days per Atlassian's retention policy. Your Jira data is untouched.</p>
+  <p>All SLA Pulse for Jira configuration (SLA rules, Slack webhook) is deleted within 30 days per Atlassian's retention policy. Your Jira data is untouched.</p>
 
   <hr />
 
   <h2 id="permissions-security">Permissions &amp; Security</h2>
 
-  <h3>Who can use PulseRook?</h3>
+  <h3>Who can use SLA Pulse for Jira?</h3>
   <p>Anyone with access to the project can view the dashboards (Overview, Issues, SLA, Reports, Insights). Only <strong>Jira admins and project admins</strong> can edit SLA rules and notification settings.</p>
 
   <h3>How is my data secured?</h3>
   <ul>
     <li>All data is stored in Atlassian Forge, which encrypts data in transit and at rest</li>
-    <li>PulseRook does not store Jira issue descriptions, comments, or attachments</li>
+    <li>SLA Pulse for Jira does not store Jira issue descriptions, comments, or attachments</li>
     <li>Slack webhook URLs are stored securely and only used to post notifications you control</li>
     <li>No data is shared with third parties (only Slack, if you enable it)</li>
   </ul>
 
-  <h3>Does PulseRook access my password?</h3>
-  <p>No. PulseRook uses Jira OAuth for authentication — you never provide your password.</p>
+  <h3>Does SLA Pulse for Jira access my password?</h3>
+  <p>No. SLA Pulse for Jira uses Jira OAuth for authentication — you never provide your password.</p>
 
-  <h3>Is PulseRook GDPR compliant?</h3>
-  <p>Yes. PulseRook complies with GDPR and only processes data necessary for SLA monitoring. See our <a href="/privacy.html">Privacy Policy</a> for details.</p>
+  <h3>Is SLA Pulse for Jira GDPR compliant?</h3>
+  <p>Yes. SLA Pulse for Jira complies with GDPR and only processes data necessary for SLA monitoring. See our <a href="/privacy.html">Privacy Policy</a> for details.</p>
 
   <hr />
 
   <h2 id="performance-limits">Performance &amp; Limits</h2>
 
-  <h3>Will PulseRook slow down my Jira?</h3>
-  <p>No. PulseRook runs on Atlassian Forge, which isolates its compute from your Jira instance. You'll see no performance impact.</p>
+  <h3>Will SLA Pulse for Jira slow down my Jira?</h3>
+  <p>No. SLA Pulse for Jira runs on Atlassian Forge, which isolates its compute from your Jira instance. You'll see no performance impact.</p>
 
-  <h3>How many issues can PulseRook handle?</h3>
-  <p>PulseRook works with projects of any size. We've tested with 10,000+ open issues with no performance degradation.</p>
+  <h3>How many issues can SLA Pulse for Jira handle?</h3>
+  <p>SLA Pulse for Jira works with projects of any size. We've tested with 10,000+ open issues with no performance degradation.</p>
 
   <h3>What's the maximum SLA hours I can set?</h3>
   <p>There's no hard limit, but we recommend staying under 1,000 hours (about 40 days) for practical purposes.</p>
