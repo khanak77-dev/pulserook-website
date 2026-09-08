@@ -50,6 +50,10 @@
         .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
         .step p { font-size: 14px; color: #666; }
 
+        .video-section { background: white; }
+        .video-wrapper { position: relative; max-width: 800px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0; box-shadow: 0 8px 24px rgba(0, 82, 204, 0.15); }
+        .video-wrapper iframe { width: 100%; height: 100%; display: block; border: 0; }
+
         .tabs { background: #f9f9f9; }
         .tabs-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 32px; }
         .tab-card { background: white; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; }
@@ -155,6 +159,20 @@
                 <h3>Connect Slack (Optional)</h3>
                 <p>Paste a Slack webhook URL to get alerts and a daily digest. That's it.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Demo Video -->
+    <section class="section video-section">
+        <h2>See It In Action</h2>
+        <p class="section-subtitle">Watch how SLA Pulse for Jira monitors, predicts, and diagnoses SLA breaches</p>
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/7v_6nuRh0h0"
+                title="Stop Missing SLA Deadlines | SLA Pulse for Jira"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"></iframe>
         </div>
     </section>
 
