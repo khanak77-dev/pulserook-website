@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Release Notes — PulseRook — SLA Pulse for Jira</title>
 <meta name="description" content="Version history and release notes for SLA Pulse for Jira.">
+<link rel="icon" type="image/png" href="assets/pulserook-logo.png">
+<link rel="stylesheet" href="assets/site.css">
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; color: #1a1a1a; line-height: 1.65; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.65; }
+  .page-content { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }
   h1 { font-size: 30px; margin-top: 40px; margin-bottom: 4px; }
   .updated { color: #666; font-size: 14px; margin-bottom: 8px; }
   .status { display: inline-block; background: #E3FCEF; color: #00875A; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 4px; margin-bottom: 24px; }
@@ -17,14 +20,31 @@
   a { color: #0052CC; }
   code { background: #f4f5f7; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
   ul, ol { padding-left: 22px; }
-  .back { display: inline-block; margin-bottom: 24px; font-size: 14px; }
   hr { border: none; border-top: 1px solid #eee; margin: 32px 0; }
   strong { color: #0b1f4a; }
   .version-block { border-left: 3px solid #0052CC; padding-left: 20px; margin: 24px 0; }
 </style>
 </head>
 <body>
-  <a class="back" href="/">← PulseRook.com</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/pulserook-logo.png" alt="PulseRook logo" class="brand-logo">
+        <span class="brand-name">PulseRook</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+      <nav class="site-nav">
+        <a href="index.html#products">Products</a>
+        <a href="documentation.html">Docs</a>
+        <a href="help-center.html">Help Center</a>
+        <a href="mailto:support@pulserook.com">Support</a>
+      </nav>
+    </div>
+  </header>
+  <div class="page-content">
   <h1>Release Notes</h1>
 
   <div class="version-block" id="v1-0-0">
@@ -175,7 +195,7 @@
       <li><strong>No Data Extraction:</strong> Issue descriptions, comments, and attachments are not accessed</li>
       <li><strong>Admin-Only Config:</strong> Settings changes require Jira admin permission</li>
       <li><strong>Slack URLs Secured:</strong> Webhook URLs are stored securely and only used for notifications</li>
-      <li><strong>GDPR Compliant:</strong> See <a href="/privacy.html">Privacy Policy</a> for details</li>
+      <li><strong>GDPR Compliant:</strong> See <a href="privacy.html">Privacy Policy</a> for details</li>
     </ul>
 
     <hr />
@@ -237,7 +257,7 @@
       <li><strong>Questions?</strong> Email support@pulserook.com</li>
       <li><strong>Found a bug?</strong> Email support@pulserook.com with details</li>
       <li><strong>Feature request?</strong> Email support@pulserook.com with your idea</li>
-      <li><strong>Documentation:</strong> Full user guide at <a href="/documentation.html">docs.pulserook.com</a></li>
+      <li><strong>Documentation:</strong> Full user guide at <a href="documentation.html">docs.pulserook.com</a></li>
     </ul>
     <p>We read every email and prioritize based on customer feedback.</p>
   </div>
@@ -248,5 +268,26 @@
   <p>Thank you for trying SLA Pulse for Jira. We hope it helps your team master SLA compliance and deliver better incident response.</p>
   <p>Questions or ideas? We're here to help.</p>
   <p><strong>PulseRook Team</strong></p>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <a href="index.html" class="footer-brand">
+        <img src="assets/pulserook-logo.png" alt="PulseRook logo" class="footer-logo">
+        <span>PulseRook</span>
+      </a>
+      <div class="footer-links">
+        <a href="index.html#products">Products</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="help-center.html">Help Center</a>
+        <a href="release-notes.html">Release Notes</a>
+        <a href="mailto:support@pulserook.com">Support</a>
+      </div>
+      <div class="footer-copyright">
+        © 2026 PulseRook. All rights reserved.
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
