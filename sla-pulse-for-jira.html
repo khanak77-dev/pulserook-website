@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLA Pulse for Jira — PulseRook</title>
-    <meta name="description" content="Monitor SLA compliance in real-time, predict breaches before they happen, and diagnose root causes—all inside Jira.">
+    <meta name="description" content="Monitor SLA compliance in real-time, score breach risk with resolution-time estimates, and analyze breach causes—all inside Jira.">
     <link rel="icon" type="image/png" href="assets/pulserook-logo.png">
     <link rel="stylesheet" href="assets/site.css">
     <style>
@@ -83,7 +83,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Know Your SLA Risk Before You Breach It</h1>
-            <p>Real-time SLA monitoring, breach prediction, and root-cause insights—built natively for Jira. No AI black box. No external API keys. Just fast, explainable rules.</p>
+            <p>Real-time SLA monitoring with breach risk scoring and resolution-time estimates, plus breach cause analysis—built natively for Jira. No AI black box. No external API keys. Just fast, explainable rules.</p>
             <div class="cta-buttons">
                 <a href="https://marketplace.atlassian.com/apps/3460167006/sla-pulse-for-jira" class="btn btn-primary">Install from Marketplace</a>
                 <a href="mailto:support@pulserook.com?subject=SLA Pulse for Jira Demo" class="btn btn-secondary">Request Demo</a>
@@ -101,12 +101,12 @@
                 <p>One number, one grade (A–F). See your team's SLA health at a glance—compliance, risk, MTTR, reopen rate, and workload blended into a single score.</p>
             </div>
             <div class="feature-card">
-                <h3>Breach Prediction</h3>
-                <p>Every ticket gets a live risk score and level (Healthy / Moderate / At Risk / Critical). Know which issues will slip before they do.</p>
+                <h3>Breach Risk Scoring</h3>
+                <p>Every ticket gets a live risk score and level (Healthy / Moderate / At Risk / Breached), plus a resolution-time estimate based on the average progress of similar-priority issues. Rule-based, not AI or statistical modeling.</p>
             </div>
             <div class="feature-card">
                 <h3>"Why Are We Missing SLAs?"</h3>
-                <p>Automatic root-cause diagnosis. Status bottlenecks, assignee overload, priority misclassification—we surface the drivers and suggest fixes.</p>
+                <p>Automatic breach cause analysis using five rule-based checks: status bottlenecks, assignee overload, priority misclassification, slow first response, and chronic backlog—we surface the drivers and suggest fixes.</p>
             </div>
             <div class="feature-card">
                 <h3>SLA Health by Group</h3>
@@ -188,11 +188,11 @@
             </div>
             <div class="tab-card">
                 <div class="tab-name">SLA</div>
-                <p>Breach prediction panel with risk-scored tickets. See which ones are at risk and exactly how much time is left.</p>
+                <p>Breach risk scoring panel with risk-scored tickets and resolution-time estimates. See which ones are at risk and exactly how much time is left.</p>
             </div>
             <div class="tab-card">
                 <div class="tab-name">Reports</div>
-                <p>Why are we missing SLAs? Root-cause diagnosis, priority breakdowns, and CSV/PDF export for stakeholder reporting.</p>
+                <p>Why are we missing SLAs? Breach cause analysis, priority breakdowns, and CSV/PDF export for stakeholder reporting.</p>
             </div>
             <div class="tab-card">
                 <div class="tab-name">Insights</div>
@@ -216,8 +216,8 @@
             <p style="color: #0052CC; font-weight: 600; margin-bottom: 16px;">Free 30-day trial. Cancel anytime.</p>
             <ul class="benefits">
                 <li>✓ Real-time SLA monitoring</li>
-                <li>✓ Breach prediction</li>
-                <li>✓ Root-cause diagnosis</li>
+                <li>✓ Breach risk scoring</li>
+                <li>✓ Breach cause analysis</li>
                 <li>✓ Custom SLA rules</li>
                 <li>✓ Slack alerts</li>
                 <li>✓ Reports & export</li>

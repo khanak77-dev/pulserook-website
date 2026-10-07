@@ -146,7 +146,7 @@
   <p><strong>Workaround:</strong> Use priority-based rules as a proxy. If Project A always prioritizes differently, have your team adjust priority assignments.</p>
 
   <h3>Can I have different SLA rules for Service Desk vs. regular issues?</h3>
-  <p>Not yet. All SLA calculations use the same rules regardless of issue type. This is on the roadmap.</p>
+  <p>Yes, as of v2.7.0. You can set different SLA hours per priority for each issue type in a project (for example, Incident vs. Service Request), including Service Desk request types.</p>
 
   <h3>What happens if I change SLA rules mid-project?</h3>
   <p>New rules apply immediately to all issues going forward. Issues that were already created use the rules in effect when they were created (for consistency).</p>
@@ -252,7 +252,7 @@
     <li>Priority breakdown chart</li>
     <li>SLA compliance trend (7-day)</li>
     <li>Top breached issues</li>
-    <li>Root-cause diagnosis</li>
+    <li>Breach cause analysis</li>
     <li>Assignee performance table</li>
   </ul>
 
@@ -356,7 +356,7 @@
   <p>No. SLA Pulse for Jira runs on Atlassian Forge, which isolates its compute from your Jira instance. You'll see no performance impact.</p>
 
   <h3>How many issues can SLA Pulse for Jira handle?</h3>
-  <p>SLA Pulse for Jira works with projects of any size. We've tested with 10,000+ open issues with no performance degradation.</p>
+  <p>SLA Pulse for Jira works with projects of any size.</p>
 
   <h3>What's the maximum SLA hours I can set?</h3>
   <p>There's no hard limit, but we recommend staying under 1,000 hours (about 40 days) for practical purposes.</p>
