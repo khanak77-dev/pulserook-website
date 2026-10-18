@@ -53,7 +53,7 @@
 <h3>First-Time Setup (30-second onboarding)</h3>
 <ol>
 <li>Go to <strong>Settings</strong> tab</li>
-<li>Under <strong>SLA Rules</strong>, set your SLA hours per priority level:</li>
+<li>Under <strong>SLA Rules</strong>, set your SLA hours by issue type and then by priority level (each project can also have its own rules, see "SLA rules per project" below):</li>
 <li>Highest: e.g., 4 hours</li>
 <li>High: e.g., 8 hours</li>
 <li>Medium: e.g., 24 hours</li>
@@ -146,8 +146,8 @@
 <hr />
 <h3>6. Settings Tab</h3>
 <p><strong>Configuration and permissions.</strong></p>
-<p><strong>SLA Rules (Jira admin only):</strong>
-- Editable per-priority SLA hours (Highest / High / Medium / Low / Lowest)
+<p><strong>SLA Rules (Jira administrators for the site default, project administrators for their project):</strong>
+- Editable SLA hours by issue type, then by priority (Highest / High / Medium / Low / Lowest, and any other priority)
 - Click the number to edit; click <strong>Save SLA Rules</strong> when done
 - Changes apply immediately to all issues</p>
 <p><strong>Slack Integration (admin only):</strong>
@@ -161,6 +161,57 @@
 <p><strong>Permissions:</strong>
 - If you're not a Jira admin, the Settings tab shows read-only. You'll see a banner: "Read-only view. Jira admin permission required to change settings."</p>
 <p><strong>How to use:</strong> Jira admins: set up SLA rules on day one, then review quarterly. Connect Slack early so the team gets alerts. Non-admins: reference SLA rules here to understand the expectations.</p>
+<hr />
+<h2>SLA rules per project</h2>
+<p>Each project can have its own SLA targets, set in hours by issue type and then by priority. Projects without their own rules follow the site default.</p>
+<p><strong>Default targets</strong> (before anyone changes them):</p>
+<ul>
+<li>Highest: 12 hours</li>
+<li>High: 24 hours</li>
+<li>Medium: 36 hours</li>
+<li>Low: 48 hours</li>
+<li>Lowest: 72 hours</li>
+<li>Any other priority: 60 hours</li>
+</ul>
+<p><strong>Who can change them:</strong></p>
+<ul>
+<li>Jira administrators set the site default.</li>
+<li>A project's administrators set that project's rules.</li>
+<li>Everyone else sees the rules read-only.</li>
+</ul>
+<p>Resetting a project returns it to the site default. Jira organization admins who are not Jira admins cannot edit.</p>
+<p><strong>Note:</strong> SLA Pulse uses its own rules and does not read Jira Service Management's built-in SLA goals, so numbers can differ.</p>
+<p><a class="btn btn-primary" href="assets/SLA-Pulse-for-Jira-SLA-Rules.pdf" download="SLA-Pulse-for-Jira-SLA-Rules.pdf" rel="noopener">Download the SLA rules (PDF)</a></p>
+<hr />
+<h2>Working hours and holidays</h2>
+<p>By default the SLA clock runs 24/7. You can optionally set a working-hours calendar for the whole site or for a single project.</p>
+<ul>
+<li>Choose a time zone.</li>
+<li>Choose the working days, and the start and end time for each day.</li>
+<li>Add holidays by date.</li>
+</ul>
+<p>Shifts that run overnight (for example 22:00 to 06:00) are not supported.</p>
+<hr />
+<h2>Pause the clock</h2>
+<p>Each project can choose statuses that pause the SLA clock, such as "Waiting for customer". Pause is set per project only, and no status is selected by default.</p>
+<ul>
+<li>A paused issue keeps its On track or Near breach status and shows a Paused tag.</li>
+<li>No Slack alerts are sent for an issue while it is paused.</li>
+<li>An issue resolved while it is in a paused status stops at its resolution time.</li>
+</ul>
+<hr />
+<h2>How outcomes and compliance are calculated</h2>
+<p>Every issue has one of four outcomes:</p>
+<ul>
+<li><strong>Met</strong> — finished within its SLA hours.</li>
+<li><strong>Breached</strong> — over its SLA hours. Breaches use exact time, not rounded hours.</li>
+<li><strong>Near breach</strong> — open, not yet breached, and 25% of the SLA time or less is left (never less than 2 hours).</li>
+<li><strong>On track</strong> — open, not yet breached, and outside the near-breach window.</li>
+</ul>
+<p><strong>Compliance</strong> = Met / (Met + Breached). It shows N/A when nothing has been decided yet.</p>
+<p><strong>MTTA</strong> (mean time to acknowledge) is the time from creation to the first public comment by someone other than the reporter. Internal notes and app comments do not count.</p>
+<p><strong>MTTR</strong> (mean time to resolution) is shown as both the mean and the median.</p>
+<p><strong>Period selector:</strong> choose 7, 30 or 90 days.</p>
 <hr />
 <h2>Common Workflows</h2>
 <h3>"I need to show SLA health to my boss"</h3>
