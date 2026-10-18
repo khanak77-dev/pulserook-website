@@ -53,7 +53,7 @@
 <h3>First-Time Setup (30-second onboarding)</h3>
 <ol>
 <li>Go to <strong>Settings</strong> tab</li>
-<li>Under <strong>SLA Rules</strong>, set your SLA hours per priority level:</li>
+<li>Under <strong>SLA Rules</strong>, set your SLA hours by issue type and then by priority level (each project can also have its own rules, see "SLA rules per project" below):</li>
 <li>Highest: e.g., 4 hours</li>
 <li>High: e.g., 8 hours</li>
 <li>Medium: e.g., 24 hours</li>
@@ -75,11 +75,11 @@
 - Workload (how many open tickets per team member)</p>
 <p><strong>Metric Cards:</strong> Below the gauge, see:
 - <strong>Total</strong> = all issues in the project
-- <strong>Healthy</strong> = on track to meet SLA
-- <strong>Moderate</strong> = within 75% of SLA time
-- <strong>At Risk</strong> = within 25% of SLA time, will breach soon
+- <strong>Met</strong> = finished within the SLA
 - <strong>Breached</strong> = SLA time already passed
-- <strong>Compliance %</strong> = (Healthy + Moderate) / Total</p>
+- <strong>Near breach</strong> = 25% of the SLA left (never less than 2 hours)
+- <strong>On track</strong> = open, not yet breached, and outside the near-breach window
+- <strong>Compliance %</strong> = Met / (Met + Breached). Only issues with a decided outcome (Met or Breached) are counted; open issues that are On track or Near breach are left out; if nothing is decided yet, it shows N/A.</p>
 <p><strong>SLA Health by Group:</strong> A table showing SLA metrics per Jira group (if your team members are added to Jira groups). Filter by group to drill into a specific team's health.</p>
 <p><strong>7-Day Trend Chart:</strong> Shows your compliance % over the last 7 days — is health improving or declining?</p>
 <p><strong>How to use:</strong> Share the screenshot of this tab with stakeholders. The health score tells the whole story instantly. Click any metric card to jump to that filtered list of issues.</p>
@@ -92,7 +92,7 @@
 - <strong>Status</strong> — current workflow status (To Do, In Progress, In Review, Done, etc.)
 - <strong>Priority</strong> — Highest/High/Medium/Low/Lowest
 - <strong>Assignee</strong> — who it's assigned to
-- <strong>SLA Status</strong> — Met / Moderate / At Risk / Breached
+- <strong>SLA Status</strong> — Met / Breached / Near breach / On track
 - <strong>Time Remaining</strong> — hours left before breach (e.g., "3.2h remaining")
 - <strong>Time Elapsed</strong> — how long it's been in the current status</p>
 <p><strong>Sorting:</strong> Click any column header to sort (e.g., click "Time Remaining" to see the closest-to-breach issues first).</p>
@@ -102,17 +102,17 @@
 <h3>3. SLA Tab</h3>
 <p><strong>Dedicated breach risk scoring view.</strong></p>
 <p><strong>Breach Risk Scoring Panel:</strong>
-- Shows all issues grouped by risk level: Healthy (green) / Moderate (blue) / At Risk (orange) / Breached (red)
+- Shows all issues grouped by outcome: Met / On track / Near breach / Breached
 - Each group shows count + % of total
 - Click into a group to see the specific issues</p>
 <p><strong>Risk-Scored Table:</strong>
-- List of all issues sorted by urgency (At Risk first)
+- List of all issues sorted by urgency (Near breach first)
 - Shows issue key, summary, priority, assignee, time remaining
-- Color-coded pills (green/blue/orange/red) for instant visual scanning
+- Outcome pills (Met / On track / Near breach / Breached) for instant visual scanning
 - Click any issue to open in Jira</p>
 <p><strong>Resolution-Time Estimate:</strong> Each ticket's time remaining is estimated from the average progress of similar-priority issues. It's a rule-based calculation, not an AI or statistical model.</p>
 <p><strong>Breach Cause Hints:</strong> If available, shows a brief hint about why this ticket is at risk (e.g., "Status: In Review for 2 days").</p>
-<p><strong>How to use:</strong> Every morning, check the "At Risk" section. Assign resources to unblock the top 3–5 issues. Use this to prevent breaches, not respond to them.</p>
+<p><strong>How to use:</strong> Every morning, check the "Near breach" section. Assign resources to unblock the top 3–5 issues. Use this to prevent breaches, not respond to them.</p>
 <hr />
 <h3>4. Reports Tab</h3>
 <p><strong>Understand why you're missing SLAs.</strong></p>
@@ -124,7 +124,7 @@
   - "Slow first response: avg 6h to start work" → Recommendation: triage SLA
   - "Chronic backlog: 23 Lowest items never started" → Recommendation: capacity planning</p>
 <p><strong>Priority Breakdown:</strong>
-- Count of Met / Breached / At Risk per priority level
+- Count of Met / Breached / Near breach per priority level
 - Helps you see if specific priorities are problematic (e.g., "Medium is failing, High is fine")</p>
 <p><strong>Export:</strong>
 - <strong>CSV Export:</strong> Issue list with all SLA data for use in Excel or Slack
@@ -146,8 +146,8 @@
 <hr />
 <h3>6. Settings Tab</h3>
 <p><strong>Configuration and permissions.</strong></p>
-<p><strong>SLA Rules (Jira admin only):</strong>
-- Editable per-priority SLA hours (Highest / High / Medium / Low / Lowest)
+<p><strong>SLA Rules (Jira administrators for the site default, project administrators for their project):</strong>
+- Editable SLA hours by issue type, then by priority (Highest / High / Medium / Low / Lowest, and any other priority)
 - Click the number to edit; click <strong>Save SLA Rules</strong> when done
 - Changes apply immediately to all issues</p>
 <p><strong>Slack Integration (admin only):</strong>
@@ -162,13 +162,64 @@
 - If you're not a Jira admin, the Settings tab shows read-only. You'll see a banner: "Read-only view. Jira admin permission required to change settings."</p>
 <p><strong>How to use:</strong> Jira admins: set up SLA rules on day one, then review quarterly. Connect Slack early so the team gets alerts. Non-admins: reference SLA rules here to understand the expectations.</p>
 <hr />
+<h2>SLA rules per project</h2>
+<p>Each project can have its own SLA targets, set in hours by issue type and then by priority. Projects without their own rules follow the site default.</p>
+<p><strong>Default targets</strong> (before anyone changes them):</p>
+<ul>
+<li>Highest: 12 hours</li>
+<li>High: 24 hours</li>
+<li>Medium: 36 hours</li>
+<li>Low: 48 hours</li>
+<li>Lowest: 72 hours</li>
+<li>Any other priority: 60 hours</li>
+</ul>
+<p><strong>Who can change them:</strong></p>
+<ul>
+<li>Jira administrators set the site default.</li>
+<li>A project's administrators set that project's rules.</li>
+<li>Everyone else sees the rules read-only.</li>
+</ul>
+<p>Resetting a project returns it to the site default. Jira organization admins who are not Jira admins cannot edit.</p>
+<p><strong>Note:</strong> SLA Pulse uses its own rules and does not read Jira Service Management's built-in SLA goals, so numbers can differ.</p>
+<p><a class="btn btn-primary" href="assets/SLA-Pulse-for-Jira-SLA-Rules.pdf" download="SLA-Pulse-for-Jira-SLA-Rules.pdf" rel="noopener">Download the SLA rules (PDF)</a></p>
+<hr />
+<h2>Working hours and holidays</h2>
+<p>By default the SLA clock runs 24/7. You can optionally set a working-hours calendar for the whole site or for a single project.</p>
+<ul>
+<li>Choose a time zone.</li>
+<li>Choose the working days, and the start and end time for each day.</li>
+<li>Add holidays by date.</li>
+</ul>
+<p>Shifts that run overnight (for example 22:00 to 06:00) are not supported.</p>
+<hr />
+<h2>Pause the clock</h2>
+<p>Each project can choose statuses that pause the SLA clock, such as "Waiting for customer". Pause is set per project only, and no status is selected by default.</p>
+<ul>
+<li>A paused issue keeps its On track or Near breach status and shows a Paused tag.</li>
+<li>No Slack alerts are sent for an issue while it is paused.</li>
+<li>An issue resolved while it is in a paused status stops at its resolution time.</li>
+</ul>
+<hr />
+<h2>How outcomes and compliance are calculated</h2>
+<p>Every issue has one of four outcomes:</p>
+<ul>
+<li><strong>Met</strong> — finished within its SLA hours.</li>
+<li><strong>Breached</strong> — over its SLA hours. Breaches use exact time, not rounded hours.</li>
+<li><strong>Near breach</strong> — open, not yet breached, and 25% of the SLA time or less is left (never less than 2 hours).</li>
+<li><strong>On track</strong> — open, not yet breached, and outside the near-breach window.</li>
+</ul>
+<p><strong>Compliance</strong> = Met / (Met + Breached). It shows N/A when nothing has been decided yet.</p>
+<p><strong>MTTA</strong> (mean time to acknowledge) is the time from creation to the first public comment by someone other than the reporter. Internal notes and app comments do not count.</p>
+<p><strong>MTTR</strong> (mean time to resolution) is shown as both the mean and the median.</p>
+<p><strong>Period selector:</strong> choose 7, 30 or 90 days.</p>
+<hr />
 <h2>Common Workflows</h2>
 <h3>"I need to show SLA health to my boss"</h3>
 <p>→ Go to <strong>Overview</strong> → take a screenshot of the Health Score and Metrics → attach to your status report. Done.</p>
 <h3>"We're missing SLAs. What do we do?"</h3>
 <p>→ Go to <strong>Reports</strong> → read the "Why Are We Missing SLAs?" breach cause analysis → act on the top recommendation (e.g., "unblock Code Review"). Recheck in 1 week.</p>
 <h3>"Which issues will breach in the next hour?"</h3>
-<p>→ Go to <strong>SLA</strong> tab → sort by "Time Remaining" → look at the orange/red pills.</p>
+<p>→ Go to <strong>SLA</strong> tab → sort by "Time Remaining" → look at the Near breach and Breached pills.</p>
 <h3>"Jane's team is struggling. Which issues are theirs?"</h3>
 <p>→ Go to <strong>Overview</strong> → filter by the group in "SLA Health by Group" → see their metrics and breached items.</p>
 <h3>"I want a report for stakeholders"</h3>
@@ -180,7 +231,7 @@
 <p><strong>Q: How often is SLA data updated?</strong>
 A: In real time. Every time an issue status or priority changes, the SLA calculations update instantly.</p>
 <p><strong>Q: Can I change SLA rules mid-project?</strong>
-A: Yes. Go to Settings, edit the hours, and click Save. The new rules apply to all issues from that point forward. Older issues keep their original thresholds for consistency.</p>
+A: Yes. Go to Settings, edit the hours, and click Save. Changing SLA targets, working hours or pause statuses recalculates every issue in the selected period, including finished ones, so compliance and counts can change.</p>
 <p><strong>Q: What if an issue isn't in a Jira group?</strong>
 A: It won't appear in the "SLA Health by Group" panel. But it still counts toward overall project metrics.</p>
 <p><strong>Q: Does SLA Pulse for Jira work with Service Desk?</strong>
