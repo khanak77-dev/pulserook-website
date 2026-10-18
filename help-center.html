@@ -129,8 +129,7 @@
   <p>Rules apply immediately to all issues.</p>
 
   <h3>Can I set different SLA rules per project?</h3>
-  <p>Currently, SLA rules are global per Jira Cloud instance. If you need project-specific rules, this feature is planned for v2.0.</p>
-  <p><strong>Workaround:</strong> Use priority-based rules as a proxy. If Project A always prioritizes differently, have your team adjust priority assignments.</p>
+  <p>SLA targets can be set per project. Jira administrators set the site default, and a project's administrators can give their project its own rules from the Settings tab. Projects without their own rules follow the site default.</p>
 
   <h3>Can I have different SLA rules for Service Desk vs. regular issues?</h3>
   <p>Yes, as of v2.7.0. You can set different SLA hours per priority for each issue type in a project (for example, Incident vs. Service Request), including Service Desk request types.</p>
@@ -361,7 +360,6 @@
     <li>Health score trends over time</li>
     <li>Email digest option (in addition to Slack)</li>
     <li>Dark mode</li>
-    <li>Per-project SLA rule isolation</li>
     <li>Scheduled report exports</li>
   </ul>
 

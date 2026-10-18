@@ -75,11 +75,11 @@
 - Workload (how many open tickets per team member)</p>
 <p><strong>Metric Cards:</strong> Below the gauge, see:
 - <strong>Total</strong> = all issues in the project
-- <strong>Healthy</strong> = on track to meet SLA
-- <strong>Moderate</strong> = within 75% of SLA time
-- <strong>At Risk</strong> = within 25% of SLA time, will breach soon
+- <strong>Met</strong> = finished within the SLA
 - <strong>Breached</strong> = SLA time already passed
-- <strong>Compliance %</strong> = (Healthy + Moderate) / Total</p>
+- <strong>Near breach</strong> = 25% of the SLA left (never less than 2 hours)
+- <strong>On track</strong> = open, not yet breached, and outside the near-breach window
+- <strong>Compliance %</strong> = Met / (Met + Breached). Only issues with a decided outcome (Met or Breached) are counted; open issues that are On track or Near breach are left out; if nothing is decided yet, it shows N/A.</p>
 <p><strong>SLA Health by Group:</strong> A table showing SLA metrics per Jira group (if your team members are added to Jira groups). Filter by group to drill into a specific team's health.</p>
 <p><strong>7-Day Trend Chart:</strong> Shows your compliance % over the last 7 days — is health improving or declining?</p>
 <p><strong>How to use:</strong> Share the screenshot of this tab with stakeholders. The health score tells the whole story instantly. Click any metric card to jump to that filtered list of issues.</p>
@@ -92,7 +92,7 @@
 - <strong>Status</strong> — current workflow status (To Do, In Progress, In Review, Done, etc.)
 - <strong>Priority</strong> — Highest/High/Medium/Low/Lowest
 - <strong>Assignee</strong> — who it's assigned to
-- <strong>SLA Status</strong> — Met / Moderate / At Risk / Breached
+- <strong>SLA Status</strong> — Met / Breached / Near breach / On track
 - <strong>Time Remaining</strong> — hours left before breach (e.g., "3.2h remaining")
 - <strong>Time Elapsed</strong> — how long it's been in the current status</p>
 <p><strong>Sorting:</strong> Click any column header to sort (e.g., click "Time Remaining" to see the closest-to-breach issues first).</p>
@@ -102,17 +102,17 @@
 <h3>3. SLA Tab</h3>
 <p><strong>Dedicated breach risk scoring view.</strong></p>
 <p><strong>Breach Risk Scoring Panel:</strong>
-- Shows all issues grouped by risk level: Healthy (green) / Moderate (blue) / At Risk (orange) / Breached (red)
+- Shows all issues grouped by outcome: Met / On track / Near breach / Breached
 - Each group shows count + % of total
 - Click into a group to see the specific issues</p>
 <p><strong>Risk-Scored Table:</strong>
-- List of all issues sorted by urgency (At Risk first)
+- List of all issues sorted by urgency (Near breach first)
 - Shows issue key, summary, priority, assignee, time remaining
 - Color-coded pills (green/blue/orange/red) for instant visual scanning
 - Click any issue to open in Jira</p>
 <p><strong>Resolution-Time Estimate:</strong> Each ticket's time remaining is estimated from the average progress of similar-priority issues. It's a rule-based calculation, not an AI or statistical model.</p>
 <p><strong>Breach Cause Hints:</strong> If available, shows a brief hint about why this ticket is at risk (e.g., "Status: In Review for 2 days").</p>
-<p><strong>How to use:</strong> Every morning, check the "At Risk" section. Assign resources to unblock the top 3–5 issues. Use this to prevent breaches, not respond to them.</p>
+<p><strong>How to use:</strong> Every morning, check the "Near breach" section. Assign resources to unblock the top 3–5 issues. Use this to prevent breaches, not respond to them.</p>
 <hr />
 <h3>4. Reports Tab</h3>
 <p><strong>Understand why you're missing SLAs.</strong></p>
@@ -124,7 +124,7 @@
   - "Slow first response: avg 6h to start work" → Recommendation: triage SLA
   - "Chronic backlog: 23 Lowest items never started" → Recommendation: capacity planning</p>
 <p><strong>Priority Breakdown:</strong>
-- Count of Met / Breached / At Risk per priority level
+- Count of Met / Breached / Near breach per priority level
 - Helps you see if specific priorities are problematic (e.g., "Medium is failing, High is fine")</p>
 <p><strong>Export:</strong>
 - <strong>CSV Export:</strong> Issue list with all SLA data for use in Excel or Slack
@@ -231,7 +231,7 @@
 <p><strong>Q: How often is SLA data updated?</strong>
 A: In real time. Every time an issue status or priority changes, the SLA calculations update instantly.</p>
 <p><strong>Q: Can I change SLA rules mid-project?</strong>
-A: Yes. Go to Settings, edit the hours, and click Save. The new rules apply to all issues from that point forward. Older issues keep their original thresholds for consistency.</p>
+A: Yes. Go to Settings, edit the hours, and click Save. The new rules apply to all issues from that point forward. Changing SLA targets, working hours or pause statuses recalculates every issue in the selected period, including finished ones, so compliance and counts can change.</p>
 <p><strong>Q: What if an issue isn't in a Jira group?</strong>
 A: It won't appear in the "SLA Health by Group" panel. But it still counts toward overall project metrics.</p>
 <p><strong>Q: Does SLA Pulse for Jira work with Service Desk?</strong>
