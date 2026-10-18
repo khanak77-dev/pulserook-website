@@ -108,7 +108,7 @@
   <p>These permissions are required for the app to function. SLA Pulse for Jira does not access issue descriptions, comments, or other Atlassian products.</p>
 
   <h3>Can I use SLA Pulse for Jira with multiple projects?</h3>
-  <p>Currently, SLA Pulse for Jira monitors one project per Jira Cloud instance. Multi-project monitoring is on the v2.0 roadmap.</p>
+  <p>Currently, SLA Pulse for Jira monitors one project at a time; use Change project to switch, and each project can have its own rules. Multi-project monitoring is on the v2.0 roadmap.</p>
   <p><strong>Workaround:</strong> If you need to monitor multiple projects, you'll need to install the app separately for each project.</p>
 
   <h3>How long is the free trial?</h3>
@@ -124,8 +124,10 @@
     <li>Under <strong>SLA Rules</strong>, you'll see priority levels: Highest, High, Medium, Low, Lowest</li>
     <li>Click on the hours for each priority to edit</li>
     <li>Set your team's SLA hours (e.g., Highest = 4 hours, High = 8 hours, etc.)</li>
+    <li>(Optional) Targets can also be set per issue type</li>
     <li>Click <strong>Save SLA Rules</strong></li>
   </ol>
+  <p>A project's administrators can customise their own project in Settings.</p>
   <p>Rules apply immediately to all issues.</p>
 
   <h3>Can I set different SLA rules per project?</h3>
@@ -159,9 +161,8 @@
     <li>0–59: F</li>
   </ul>
 
-  <h3>What does "Moderate" mean in the metrics?</h3>
-  <p><strong>Moderate</strong> = the issue is within 75% of its SLA time but hasn't breached yet. It's on track, but monitor it.</p>
-  <p>Example: if an issue has a 24-hour SLA, "Moderate" means it has between 6–24 hours remaining.</p>
+  <h3>What does Near breach mean?</h3>
+  <p>An open issue is Near breach when 25% or less of its SLA time is left (never less than 2 hours) and it has not breached yet. Issues outside that window are On track.</p>
 
   <h3>Why is my compliance % different from the Overview card and the trend chart?</h3>
   <p>They should match. If they don't, refresh the page. If the discrepancy persists, email <strong>support@pulserook.com</strong>.</p>
@@ -197,7 +198,7 @@
   <h3>What gets sent to Slack?</h3>
   <ul>
     <li><strong>Breach alerts:</strong> When an issue breaches its SLA (real-time)</li>
-    <li><strong>Near-breach alerts:</strong> When an issue enters "At Risk" (within 25% of SLA time)</li>
+    <li><strong>Near-breach alerts:</strong> When an issue enters "Near breach" (within 25% of SLA time)</li>
     <li><strong>Daily digest:</strong> Each morning, a summary of the previous day's SLA performance</li>
   </ul>
   <p>Messages include issue key, priority, and breach status only — no sensitive comment data.</p>
@@ -226,7 +227,7 @@
   <h3>What's included in the CSV export?</h3>
   <ul>
     <li>Issue key, summary, status, priority, assignee</li>
-    <li>SLA status (Met / Moderate / At Risk / Breached)</li>
+    <li>SLA status (Met / Breached / Near breach / On track)</li>
     <li>Time remaining (or time elapsed if breached)</li>
     <li>Priority level</li>
     <li>One row per issue</li>
@@ -251,7 +252,7 @@
 
   <h3>The dashboard shows "No data" or very low numbers. Why?</h3>
   <ol>
-    <li><strong>Did you set SLA rules?</strong> Go to Settings and configure SLA hours per priority. Without rules, no analysis runs.</li>
+    <li><strong>Did you set SLA rules?</strong> Built-in default targets apply until you set your own (Highest 12h, High 24h, Medium 36h, Low 48h, Lowest 72h, other 60h). You can change them per project in Settings.</li>
     <li><strong>Do you have issues in your project?</strong> If the project has 0 issues, there's nothing to monitor.</li>
     <li><strong>Are you looking at the right project?</strong> Check the project selector at the top of SLA Pulse for Jira.</li>
   </ol>

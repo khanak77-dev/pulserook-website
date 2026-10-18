@@ -108,7 +108,7 @@
 <p><strong>Risk-Scored Table:</strong>
 - List of all issues sorted by urgency (Near breach first)
 - Shows issue key, summary, priority, assignee, time remaining
-- Color-coded pills (green/blue/orange/red) for instant visual scanning
+- Outcome pills (Met / On track / Near breach / Breached) for instant visual scanning
 - Click any issue to open in Jira</p>
 <p><strong>Resolution-Time Estimate:</strong> Each ticket's time remaining is estimated from the average progress of similar-priority issues. It's a rule-based calculation, not an AI or statistical model.</p>
 <p><strong>Breach Cause Hints:</strong> If available, shows a brief hint about why this ticket is at risk (e.g., "Status: In Review for 2 days").</p>
@@ -219,7 +219,7 @@
 <h3>"We're missing SLAs. What do we do?"</h3>
 <p>→ Go to <strong>Reports</strong> → read the "Why Are We Missing SLAs?" breach cause analysis → act on the top recommendation (e.g., "unblock Code Review"). Recheck in 1 week.</p>
 <h3>"Which issues will breach in the next hour?"</h3>
-<p>→ Go to <strong>SLA</strong> tab → sort by "Time Remaining" → look at the orange/red pills.</p>
+<p>→ Go to <strong>SLA</strong> tab → sort by "Time Remaining" → look at the Near breach and Breached pills.</p>
 <h3>"Jane's team is struggling. Which issues are theirs?"</h3>
 <p>→ Go to <strong>Overview</strong> → filter by the group in "SLA Health by Group" → see their metrics and breached items.</p>
 <h3>"I want a report for stakeholders"</h3>
@@ -231,7 +231,7 @@
 <p><strong>Q: How often is SLA data updated?</strong>
 A: In real time. Every time an issue status or priority changes, the SLA calculations update instantly.</p>
 <p><strong>Q: Can I change SLA rules mid-project?</strong>
-A: Yes. Go to Settings, edit the hours, and click Save. The new rules apply to all issues from that point forward. Changing SLA targets, working hours or pause statuses recalculates every issue in the selected period, including finished ones, so compliance and counts can change.</p>
+A: Yes. Go to Settings, edit the hours, and click Save. Changing SLA targets, working hours or pause statuses recalculates every issue in the selected period, including finished ones, so compliance and counts can change.</p>
 <p><strong>Q: What if an issue isn't in a Jira group?</strong>
 A: It won't appear in the "SLA Health by Group" panel. But it still counts toward overall project metrics.</p>
 <p><strong>Q: Does SLA Pulse for Jira work with Service Desk?</strong>
